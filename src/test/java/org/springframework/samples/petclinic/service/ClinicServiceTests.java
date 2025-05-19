@@ -82,11 +82,11 @@ class ClinicServiceTests {
 
 	@Test
 	void shouldFindOwnersByLastName() {
-		Page<Owner> owners = this.owners.findByLastNameStartingWith("Davis", pageable);
-		assertThat(owners).hasSize(2);
+		Page<Owner> ownerPages = this.owners.findByLastNameStartingWith("Davis", pageable);
+		assertThat(ownerPages).hasSize(2);
 
-		owners = this.owners.findByLastNameStartingWith("Daviss", pageable);
-		assertThat(owners).isEmpty();
+		ownerPages = this.owners.findByLastNameStartingWith("Daviss", pageable);
+		assertThat(ownerPages).isEmpty();
 	}
 
 	@Test
