@@ -1,0 +1,785 @@
+[
+    
+    {
+        "key": "4c80fba3-74c5-43be-8fa1-432a22aefbab",
+        "severity": "MAJOR",
+        "message": "Insert a <!DOCTYPE> declaration to before this <html> tag.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/createOrUpdateOwnerForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:DoctypePresenceCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<!DOCTYPE>\" declarations should appear before \"<html>\" tags",
+            "description": "<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret\nthe various elements.</p>\n<p>Validators also rely on it to know which rules to enforce.</p>\n<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;  &lt;!-- Noncompliant --&gt;\n...\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;  &lt;!-- Compliant --&gt;\n...\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "7c85b1be-7c69-4077-8c9d-828716af49cf",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/createOrUpdateOwnerForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "a6e06952-1980-4603-bc42-98fa55176827",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/owners/createOrUpdateOwnerForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "27213e4b-c039-436e-b3ce-661107f07014",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/owners/findOwners.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "5a76d96d-cb6d-48bf-8060-fe26e9735b19",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/findOwners.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "725d36eb-d669-4e90-9246-fc07ba58bda9",
+        "severity": "MAJOR",
+        "message": "Insert a <!DOCTYPE> declaration to before this <html> tag.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/findOwners.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:DoctypePresenceCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<!DOCTYPE>\" declarations should appear before \"<html>\" tags",
+            "description": "<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret\nthe various elements.</p>\n<p>Validators also rely on it to know which rules to enforce.</p>\n<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;  &lt;!-- Noncompliant --&gt;\n...\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;  &lt;!-- Compliant --&gt;\n...\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "00053d2c-b7ee-49ab-b50f-2f95a9029e90",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/ownerDetails.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "dc7fd899-2667-40d4-96f7-d6fb77097ad7",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/owners/ownerDetails.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "23aad479-7f11-4b08-9571-d6eaa4d7c401",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/owners/ownersList.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "419c3841-f688-4de5-a2a7-f8b5f41f2f51",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/ownersList.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "002bd0e7-af24-4539-92c7-12cf84fc6302",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "7bc293a6-4c93-4ea8-9e5c-a992fd3508af",
+        "severity": "MAJOR",
+        "message": "Insert a <!DOCTYPE> declaration to before this <html> tag.",
+        "component": "spring-petclinic:src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:DoctypePresenceCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<!DOCTYPE>\" declarations should appear before \"<html>\" tags",
+            "description": "<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret\nthe various elements.</p>\n<p>Validators also rely on it to know which rules to enforce.</p>\n<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;  &lt;!-- Noncompliant --&gt;\n...\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;  &lt;!-- Compliant --&gt;\n...\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "e39b19c9-66dc-42ce-80a1-4c8be7432384",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "6e90405e-0945-43b0-a854-307ea23d1d48",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/pets/createOrUpdateVisitForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "9fbd0df1-b627-427c-bfcb-41139cded421",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/pets/createOrUpdateVisitForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "d77c8742-7a22-4adb-8996-dfa536b06296",
+        "severity": "MAJOR",
+        "message": "Insert a <!DOCTYPE> declaration to before this <html> tag.",
+        "component": "spring-petclinic:src/main/resources/templates/pets/createOrUpdateVisitForm.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:DoctypePresenceCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<!DOCTYPE>\" declarations should appear before \"<html>\" tags",
+            "description": "<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret\nthe various elements.</p>\n<p>Validators also rely on it to know which rules to enforce.</p>\n<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;  &lt;!-- Noncompliant --&gt;\n...\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;  &lt;!-- Compliant --&gt;\n...\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "69837a8d-3e45-4494-a9f4-1e281d07bb71",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/vets/vetList.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "db68fa86-4ed5-40e9-addd-e01ce0dff500",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/vets/vetList.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "0174fc0a-49ff-4974-82b5-b6a0c7624faa",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/welcome.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "105d930f-9e46-453a-88d3-2f51d49bbd40",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/welcome.html",
+        "line": 3,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "85204de9-0eed-4961-a965-2c8241269435",
+        "severity": "MAJOR",
+        "message": "Rename \"vets\" which hides the field declared at line 78.",
+        "component": "spring-petclinic:src/test/java/org/springframework/samples/petclinic/service/ClinicServiceTests.java",
+        "line": 202,
+        "type": "CODE_SMELL",
+        "rule": "java:S1117",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Local variables should not shadow class fields",
+            "description": "<p>Shadowing occurs when a local variable has the same name as a variable or a field in an outer scope.</p>\n<p>This can lead to three main problems:</p>\n<ul>\n  <li> Confusion: The same name can refer to different variables in different parts of the scope, making the code hard to read and understand. </li>\n  <li> Unintended Behavior: You might accidentally use the wrong variable, leading to hard-to-detect bugs. </li>\n  <li> Maintenance Issues: If the inner variable is removed or renamed, the code’s behavior might change unexpectedly because the outer variable is\n  now being used. </li>\n</ul>\n<p>To avoid these problems, rename the shadowing, shadowed, or both identifiers to accurately represent their purpose with unique and meaningful\nnames.</p>\n<p>This rule focuses on variables in methods that shadow a field.</p>\n<h3>Noncompliant code example</h3>\n<pre>\nclass Foo {\n  public int myField;\n\n  public void doSomething() {\n    int myField = 0; // Noncompliant\n    // ...\n  }\n}\n</pre>\n<h3>Documentation</h3>\n<ul>\n  <li> CERT - <a href=\"https://wiki.sei.cmu.edu/confluence/display/java/DCL51-J.+Do+not+shadow+or+obscure+identifiers+in+subscopes\">DCL51-J. Do not\n  shadow or obscure identifiers in subscopes</a> </li>\n</ul>\n<h3>Related rules</h3>\n<ul>\n  <li> <a href='/coding_rules#rule_key=java%3AS2176'>S2176</a> - Class names should not shadow interfaces or superclasses </li>\n  <li> <a href='/coding_rules#rule_key=java%3AS2387'>S2387</a> - Child class fields should not shadow parent class fields </li>\n  <li> <a href='/coding_rules#rule_key=java%3AS4977'>S4977</a> - Type parameters should not shadow other type parameters </li>\n</ul>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "ea30cee3-0754-4f05-9393-231043fe0e15",
+        "severity": "MINOR",
+        "message": "Add an \"alt\" attribute to this image.",
+        "component": "spring-petclinic:src/main/resources/templates/error.html",
+        "line": 6,
+        "type": "CODE_SMELL",
+        "rule": "Web:ImgWithoutAltCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Image, area and button with image elements should have an \"alt\" attribute",
+            "description": "<p>Add an alternative text to the HTML element.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;img src=\"foo.png\" /&gt; &lt;!-- missing `alt` attribute --&gt;\n&lt;input type=\"image\" src=\"bar.png\" /&gt; &lt;!-- missing `alt` attribute --&gt;\n&lt;input type=\"image\" src=\"bar.png\" alt=\"\" /&gt; &lt;!-- empty `alt` attribute on &lt;input&gt; --&gt;\n\n&lt;img src=\"house.gif\" usemap=\"#map1\"\n    alt=\"rooms of the house.\" /&gt;\n&lt;map id=\"map1\" name=\"map1\"&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,42,42\"\n    href=\"bedroom.html\"/&gt; &lt;!-- missing `alt` attribute --&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,21,21\"\n    href=\"lounge.html\" alt=\"\"/&gt; &lt;!-- empty `alt` attribute on &lt;area&gt; --&gt;\n&lt;/map&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;img src=\"foo.png\" alt=\"Some textual description of foo.png\" /&gt;\n&lt;input type=\"image\" src=\"bar.png\" alt=\"Textual description of bar.png\" /&gt;\n\n&lt;img src=\"house.gif\" usemap=\"#map1\"\n    alt=\"rooms of the house.\" /&gt;\n&lt;map id=\"map1\" name=\"map1\"&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,42,42\"\n    href=\"bedroom.html\" alt=\"Bedroom\" /&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,21,21\"\n    href=\"lounge.html\" alt=\"Lounge\"/&gt;\n&lt;/map&gt;\n</pre>\n<p>The <code>alt</code> attribute provides a textual alternative to an image.</p>\n<p>It is used whenever the actual image cannot be rendered.</p>\n<p>Common reasons for that include:</p>\n<ul>\n  <li> The image can no longer be found </li>\n  <li> Visually impaired users using a screen reader software </li>\n  <li> Image loading is disabled, to reduce data consumption on mobile phones </li>\n</ul>\n<p>It is also very important not to set an <code>alt</code> attribute to a non-informative value. For example, <code>&lt;img ... alt=\"logo\"&gt;</code>\nis useless as it doesn’t give any information to the user. In this case, as for any other decorative image, it is better to use a CSS background image\ninstead of an <code>&lt;img&gt;</code> tag. If using CSS <code>background-image</code> is not possible, an empty <code>alt=\"\"</code> is tolerated. See\nExceptions below.</p>\n<p>This rule raises an issue when:</p>\n<ul>\n  <li> An <code>&lt;input type=\"image\"&gt;</code> or <code>&lt;area&gt;</code> element has no <code>alt</code> attribute or it holds an empty string\n  value. </li>\n  <li> An <code>&lt;img&gt;</code> element has no <code>alt</code> attribute. </li>\n</ul>\n<h3>Exceptions</h3>\n<p><code>&lt;img&gt;</code> elements with an empty string&nbsp;<code>alt=\"\"</code> attribute won’t raise any issue. However, this way should be used\nin two cases only:</p>\n<p>When the image is decorative and it is not possible to use a CSS background image. For example, when the decorative <code>&lt;img&gt;</code> is\ngenerated via javascript with a source image coming from a database, it is better to use an <code>&lt;img alt=\"\"&gt;</code> tag rather than generate\nCSS code.</p>\n<pre>\n&lt;li *ngFor=\"let image of images\"&gt;\n    &lt;img [src]=\"image\" alt=\"\"&gt;\n&lt;/li&gt;\n</pre>\n<p>When the image is not decorative but its <code>alt</code> text would repeat a nearby text. For example, images contained in links should not\nduplicate the link’s text in their <code>alt</code> attribute, as it would make the screen reader repeat the text twice.</p>\n<pre>\n&lt;a href=\"flowers.html\"&gt;\n    &lt;img src=\"tulip.gif\" alt=\"\" /&gt;\n    A blooming tulip\n&lt;/a&gt;\n</pre>\n<p>In all other cases you should use CSS background images.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/tutorials/images/decision-tree/\">W3C WAI&nbsp;Web Accessibility Tutorials</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H24.html\">Providing text alternatives for the area elements of image maps</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H36.html\">Using alt attributes on images used as submit buttons</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H37.html\">Using alt attributes on img elements</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H67.html\">Using null alt text and no title attribute on img elements for images that AT\n  should ignore</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H2.html\">Combining adjacent image and text links for the same resource</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-text-equiv-all\">Non-text Content</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-navigation-mechanisms-refs\">Link Purpose (In Context)</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-navigation-mechanisms-link\">Link Purpose (Link Only)</a> </li>\n</ul>",
+            "rule_severity": "MINOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "05e75e5b-74df-47d7-a1cd-90dd38585373",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/inputField.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "34547048-aa66-471e-8b87-a7cc24fcedd5",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/inputField.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "9b029f77-ed48-485b-843e-04e0d8df9d58",
+        "severity": "MAJOR",
+        "message": "Insert a <!DOCTYPE> declaration to before this <html> tag.",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/inputField.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:DoctypePresenceCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<!DOCTYPE>\" declarations should appear before \"<html>\" tags",
+            "description": "<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret\nthe various elements.</p>\n<p>Validators also rely on it to know which rules to enforce.</p>\n<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;  &lt;!-- Noncompliant --&gt;\n...\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;  &lt;!-- Compliant --&gt;\n...\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "1a329b04-a46b-4183-b780-f04d603896bd",
+        "severity": "MAJOR",
+        "message": "A form label must be associated with a control.",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/inputField.html",
+        "line": 8,
+        "type": "CODE_SMELL",
+        "rule": "Web:S6853",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Label elements should have a text label and an associated control",
+            "description": "<p>A <code>&lt;label&gt;</code> element should wrap a control element or have an <code>&lt;htmlFor&gt;</code> attribute referencing a control and text\ncontent.</p>\n<p>When a label element lacks a text label or an associated control, it can lead to several issues:</p>\n<ol>\n  <li> <strong>Poor Accessibility</strong>: Screen readers rely on correctly associated labels to describe the function of the form control. If the\n  label is not properly associated with a control, it can make the form difficult or impossible for visually impaired users to understand or interact\n  with. </li>\n  <li> <strong>Confusing User Interface</strong>: Labels provide users with clear instructions about what information is required in a form control.\n  Without a properly associated label, users might not understand what input is expected, leading to confusion and potential misuse of the form. </li>\n  <li> <strong>Code Maintainability</strong>: Properly structured and labeled code is easier to read, understand, and maintain. When labels are not\n  correctly associated, it can make the code more difficult to navigate and debug, especially for new developers or those unfamiliar with the\n  codebase. </li>\n</ol>\n<p>Control elements are: * <code>&lt;input&gt;</code> * <code>&lt;meter&gt;</code> * <code>&lt;output&gt;</code> * <code>&lt;progress&gt;</code> *\n<code>&lt;select&gt;</code> * <code>&lt;textarea&gt;</code></p>\n<h3>Exceptions</h3>\n<p>Custom components may contain control elements, therefore label elements containing custom elements do not raise issues.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> MDN web docs - <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label\">The Label element</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships\">Info and Relationships</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions\">Labels or Instructions</a> </li>\n</ul>\n<p>If you have a pair of control and <code>&lt;label&gt;</code> elements, make sure that the <code>&lt;label&gt;</code> wraps the control element. If\nyou lack a control element, add one.</p>\n<p>It is strongly recommended to avoid using generated <code>id</code>s since they must be deterministic.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;input type=\"text\" /&gt;\n&lt;label&gt;Favorite food&lt;/label&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;label&gt;\n  &lt;input type=\"text\" /&gt;\n  Favorite food\n&lt;/label&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "3b4947ad-ad27-45fd-a480-8ac76cdd32a4",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/layout.html",
+        "line": 2,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "65dec51d-ec4a-4601-811c-fa73fb406545",
+        "severity": "MAJOR",
+        "message": "Add \"lang\" and/or \"xml:lang\" attributes to this \"<html>\" element",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/selectField.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:S5254",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<html>\" element should have a language attribute",
+            "description": "<ul>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/html.html#H57\">WCAG2, H57</a> - Using language attributes on the html element </li>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id\">WCAG2, 3.1.1</a> - Language of Page </li>\n</ul>\n<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the\ndefault language of a document.</p>\n<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and\naccent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>\n<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation\ntools.</p>\n<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>\n<p>&nbsp;</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt; &lt;!-- Noncompliant --&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html lang=\"en\" xml:lang=\"en\"&gt;\n&nbsp;&nbsp;&nbsp; &lt;head&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;\n &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content=\"text/html; charset=utf-8\" /&gt;\n&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;\n\n\n&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;\n&nbsp;&nbsp;&nbsp; &lt;/body&gt;\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "72750f6e-474a-49fa-93a2-768814d42e7e",
+        "severity": "MAJOR",
+        "message": "Insert a <!DOCTYPE> declaration to before this <html> tag.",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/selectField.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:DoctypePresenceCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<!DOCTYPE>\" declarations should appear before \"<html>\" tags",
+            "description": "<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret\nthe various elements.</p>\n<p>Validators also rely on it to know which rules to enforce.</p>\n<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;  &lt;!-- Noncompliant --&gt;\n...\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;!DOCTYPE html&gt;\n&lt;html&gt;  &lt;!-- Compliant --&gt;\n...\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "a2721bb3-1785-4425-a7bf-72ade0aa4fee",
+        "severity": "MAJOR",
+        "message": "Add a <title> tag to this page.",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/selectField.html",
+        "line": 1,
+        "type": "BUG",
+        "rule": "Web:PageWithoutTitleCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "\"<title>\" should be present in all pages",
+            "description": "<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>\n<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a\n<code>&lt;head&gt;</code> one.</p>\n<h3>Noncompliant code example</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Non-Compliant --&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>\n<h3>Compliant solution</h3>\n<pre>\n&lt;html&gt;         &lt;!-- Compliant --&gt;\n\n&lt;head&gt;\n&lt;title&gt;Some relevant title&lt;/title&gt;\n&lt;/head&gt;\n\n&lt;body&gt;\n...\n&lt;/body&gt;\n\n&lt;/html&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "5060aab7-b3a3-4ab2-b923-6e8930a8eedf",
+        "severity": "MAJOR",
+        "message": "A form label must be associated with a control.",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/selectField.html",
+        "line": 8,
+        "type": "CODE_SMELL",
+        "rule": "Web:S6853",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Label elements should have a text label and an associated control",
+            "description": "<p>A <code>&lt;label&gt;</code> element should wrap a control element or have an <code>&lt;htmlFor&gt;</code> attribute referencing a control and text\ncontent.</p>\n<p>When a label element lacks a text label or an associated control, it can lead to several issues:</p>\n<ol>\n  <li> <strong>Poor Accessibility</strong>: Screen readers rely on correctly associated labels to describe the function of the form control. If the\n  label is not properly associated with a control, it can make the form difficult or impossible for visually impaired users to understand or interact\n  with. </li>\n  <li> <strong>Confusing User Interface</strong>: Labels provide users with clear instructions about what information is required in a form control.\n  Without a properly associated label, users might not understand what input is expected, leading to confusion and potential misuse of the form. </li>\n  <li> <strong>Code Maintainability</strong>: Properly structured and labeled code is easier to read, understand, and maintain. When labels are not\n  correctly associated, it can make the code more difficult to navigate and debug, especially for new developers or those unfamiliar with the\n  codebase. </li>\n</ol>\n<p>Control elements are: * <code>&lt;input&gt;</code> * <code>&lt;meter&gt;</code> * <code>&lt;output&gt;</code> * <code>&lt;progress&gt;</code> *\n<code>&lt;select&gt;</code> * <code>&lt;textarea&gt;</code></p>\n<h3>Exceptions</h3>\n<p>Custom components may contain control elements, therefore label elements containing custom elements do not raise issues.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> MDN web docs - <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label\">The Label element</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships\">Info and Relationships</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions\">Labels or Instructions</a> </li>\n</ul>\n<p>If you have a pair of control and <code>&lt;label&gt;</code> elements, make sure that the <code>&lt;label&gt;</code> wraps the control element. If\nyou lack a control element, add one.</p>\n<p>It is strongly recommended to avoid using generated <code>id</code>s since they must be deterministic.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;input type=\"text\" /&gt;\n&lt;label&gt;Favorite food&lt;/label&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;label&gt;\n  &lt;input type=\"text\" /&gt;\n  Favorite food\n&lt;/label&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "b0c089a2-e27e-43fe-9f07-eb6654ac80b2",
+        "severity": "MAJOR",
+        "message": "A form label must be associated with a control.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/findOwners.html",
+        "line": 12,
+        "type": "CODE_SMELL",
+        "rule": "Web:S6853",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Label elements should have a text label and an associated control",
+            "description": "<p>A <code>&lt;label&gt;</code> element should wrap a control element or have an <code>&lt;htmlFor&gt;</code> attribute referencing a control and text\ncontent.</p>\n<p>When a label element lacks a text label or an associated control, it can lead to several issues:</p>\n<ol>\n  <li> <strong>Poor Accessibility</strong>: Screen readers rely on correctly associated labels to describe the function of the form control. If the\n  label is not properly associated with a control, it can make the form difficult or impossible for visually impaired users to understand or interact\n  with. </li>\n  <li> <strong>Confusing User Interface</strong>: Labels provide users with clear instructions about what information is required in a form control.\n  Without a properly associated label, users might not understand what input is expected, leading to confusion and potential misuse of the form. </li>\n  <li> <strong>Code Maintainability</strong>: Properly structured and labeled code is easier to read, understand, and maintain. When labels are not\n  correctly associated, it can make the code more difficult to navigate and debug, especially for new developers or those unfamiliar with the\n  codebase. </li>\n</ol>\n<p>Control elements are: * <code>&lt;input&gt;</code> * <code>&lt;meter&gt;</code> * <code>&lt;output&gt;</code> * <code>&lt;progress&gt;</code> *\n<code>&lt;select&gt;</code> * <code>&lt;textarea&gt;</code></p>\n<h3>Exceptions</h3>\n<p>Custom components may contain control elements, therefore label elements containing custom elements do not raise issues.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> MDN web docs - <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label\">The Label element</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships\">Info and Relationships</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions\">Labels or Instructions</a> </li>\n</ul>\n<p>If you have a pair of control and <code>&lt;label&gt;</code> elements, make sure that the <code>&lt;label&gt;</code> wraps the control element. If\nyou lack a control element, add one.</p>\n<p>It is strongly recommended to avoid using generated <code>id</code>s since they must be deterministic.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;input type=\"text\" /&gt;\n&lt;label&gt;Favorite food&lt;/label&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;label&gt;\n  &lt;input type=\"text\" /&gt;\n  Favorite food\n&lt;/label&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "397c1031-cb79-4758-8cfd-18ba46bf72ba",
+        "severity": "MAJOR",
+        "message": "Add \"<th>\" headers to this \"<table>\".",
+        "component": "spring-petclinic:src/main/resources/templates/owners/ownerDetails.html",
+        "line": 51,
+        "type": "BUG",
+        "rule": "Web:S5256",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Tables should have headers",
+            "description": "<h3>Documentation</h3>\n<ul>\n  <li> <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-content-structure-separation-programmatic\">WCAG2, 1.3.1</a>&nbsp;-&nbsp;Info\n  and Relationships </li>\n  <li> <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H51\">WCAG2,&nbsp;H51</a> - Using table markup to present tabular information </li>\n</ul>\n<p>Table headers are essential to enhance the accessibility of a table’s data, particularly for assistive technologies like screen readers. These\nheaders provide the necessary context to transform data into information. Without headers, users get rapidly lost in the flow of data.</p>\n<p>This rule raises an issue whenever a <code>&lt;table&gt;</code> does not contain any <code>&lt;th&gt;</code> elements.</p>\n<h3>Exceptions</h3>\n<p>No issue will be raised on <code>&lt;table&gt;</code> used for layout purpose, i.e. when it contains a <code>role</code> attribute set to\n<code>\"presentation\"</code> or <code>\"none\"</code>.</p>\n<pre>\n&lt;table role=\"presentation\"&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Name&lt;/td&gt;\n    &lt;td&gt;Age&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;John Doe&lt;/td&gt;\n    &lt;td&gt;42&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\n</pre>\n<p>Note that <a href=\"https://www.w3schools.com/html/html_layout.asp\">using &lt;table&gt; for layout purpose is a bad practice</a>.</p>\n<p>No issue will be raised on <code>&lt;table&gt;</code> containing an <code>aria-hidden</code> attribute set to <code>\"true\"</code>.</p>\n<pre>\n&lt;table aria-hidden=\"true\"&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Name&lt;/td&gt;\n    &lt;td&gt;Age&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;John Doe&lt;/td&gt;\n    &lt;td&gt;42&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\n</pre>\n<p>The first <code>&lt;tr&gt;</code> of the table should contain <code>&lt;th&gt;</code> elements, with the appropriate description of what the data\nin those columns represents.</p>\n<h3>Going the extra mile</h3>\n<p>Headers should be properly associated with the corresponding <code>&lt;td&gt;</code> cells by using either a <code>scope</code> attribute or\n<code>headers</code> and <code>id</code> attributes. See <a href=\"https://www.w3.org/WAI/tutorials/tables/tips/\">W3C WAI Web Accessibility\nTutorials</a> for more information.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;table&gt; &lt;!-- Noncompliant --&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Name&lt;/td&gt;\n    &lt;td&gt;Age&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;John Doe&lt;/td&gt;\n    &lt;td&gt;24&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Alice Doe&lt;/td&gt;\n    &lt;td&gt;54&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;table&gt;\n  &lt;tr&gt;\n    &lt;th scope=\"col\"&gt;Name&lt;/th&gt;\n    &lt;th scope=\"col\"&gt;Age&lt;/th&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;John Doe&lt;/td&gt;\n    &lt;td&gt;24&lt;/td&gt;\n  &lt;/tr&gt;\n  &lt;tr&gt;\n    &lt;td&gt;Alice Doe&lt;/td&gt;\n    &lt;td&gt;54&lt;/td&gt;\n  &lt;/tr&gt;\n&lt;/table&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "BUG",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "23f717e7-3f10-4896-b5e3-c20c95b3d8ef",
+        "severity": "MAJOR",
+        "message": "Remove this deprecated \"valign\" attribute.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/ownerDetails.html",
+        "line": 54,
+        "type": "CODE_SMELL",
+        "rule": "Web:S1827",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Attributes deprecated in HTML5 should not be used",
+            "description": "<p>To ensure the best user experience, deprecated attributes should not be used. This table lists the deprecated attributes this rule is checking for,\nand how to fix them.</p>\n<table>\n  <colgroup>\n    <col style=\"width: 33.3333%;\">\n    <col style=\"width: 33.3333%;\">\n    <col style=\"width: 33.3334%;\">\n  </colgroup>\n  <thead>\n    <tr>\n      <th>Attribute</th>\n      <th>Removed from</th>\n      <th>Fix</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><p><code>accept</code></p></td>\n      <td><p><code>form</code></p></td>\n      <td> <p>Use the <code>accept</code> attribute directly on the <code>input</code> elements instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>align</code></p></td>\n      <td><p><code>caption</code>, <code>col</code>, <code>div</code>, <code>embed</code>, <code>h1-h6</code>, <code>hr</code>, <code>iframe</code>,\n      <code>img</code>, <code>input</code>, <code>legend</code>, <code>object</code>, <code>p</code>, <code>table</code>, <code>tbody</code>,\n      <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>alink</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>allowtransparency</code></p></td>\n      <td><p><code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>archive</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>axis</code></p></td>\n      <td><p><code>td</code>, <code>th</code></p></td>\n      <td> <p>Use the <code>scope</code> attribute on the relevant <code>th</code></p> </td>\n    </tr>\n    <tr>\n      <td><p><code>background</code></p></td>\n      <td><p><code>body</code>, <code>table</code>, <code>thead</code>, <code>tbody</code>, <code>tfoot</code>, <code>tr</code>, <code>td</code>,\n      <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>bgcolor</code></p></td>\n      <td><p><code>body</code>, <code>table</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>border</code></p></td>\n      <td><p><code>img</code> (<code>border=\"0\"</code> allowed), <code>object</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>bordercolor</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>cellpadding</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>cellspacing</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>char</code></p></td>\n      <td><p><code>col</code>, <code>tbody</code>, <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>charoff</code></p></td>\n      <td><p><code>col</code>, <code>tbody</code>, <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>charset</code></p></td>\n      <td><p><code>a</code>, <code>link</code></p></td>\n      <td> <p>Use an HTTP <code>`Content-Type`</code> header on the linked resource instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>classid</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>clear</code></p></td>\n      <td><p><code>br</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>code</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>codebase</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>codetype</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>color</code></p></td>\n      <td><p><code>hr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>compact</code></p></td>\n      <td><p><code>dl</code>, <code>ol</code>, <code>ul</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>coords</code></p></td>\n      <td><p><code>a</code></p></td>\n      <td> <p>Use <code>area</code> instead of <code>a</code> for image maps</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>datafld</code></p></td>\n      <td><p><code>a</code>, <code>applet</code>, <code>button</code>, <code>div</code>, <code>fieldset</code>, <code>frame</code>,\n      <code>iframe</code>, <code>img</code>, <code>input</code>, <code>label</code>, <code>legend</code>, <code>marquee</code>, <code>object</code>,\n      <code>param</code>, <code>select</code>, <code>span</code>, <code>textarea</code></p></td>\n      <td> <p>Use script and a mechanism such as <code>XMLHttpRequest</code> to populate the page dynamically</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>dataformatas</code></p></td>\n      <td><p><code>button</code>, <code>div</code>, <code>input</code>, <code>label</code>, <code>legend</code>, <code>marquee</code>,\n      <code>object</code>, <code>option</code>, <code>select</code>, <code>span</code>, <code>table</code></p></td>\n      <td> <p>Use script and a mechanism such as <code>XMLHttpRequest</code> to populate the page dynamically</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>datapagesize</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>datasrc</code></p></td>\n      <td><p><code>a</code>, <code>applet</code>, <code>button</code>, <code>div</code>, <code>frame</code>, <code>iframe</code>, <code>img</code>,\n      <code>input</code>, <code>label</code>, <code>legend</code>, <code>marquee</code>, <code>object</code>, <code>option</code>,\n      <code>select</code>, <code>span</code>, <code>table</code>, <code>textarea</code></p></td>\n      <td> <p>Use script and a mechanism such as <code>XMLHttpRequest</code> to populate the page dynamically</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>declare</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Repeat the <code>object</code> element completely each time the resource is to be reused</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>event</code></p></td>\n      <td><p><code>script</code></p></td>\n      <td> <p>Use DOM events mechanisms to register event listeners</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>for</code></p></td>\n      <td><p><code>script</code></p></td>\n      <td> <p>Use DOM events mechanisms to register event listeners</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>frame</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>frameborder</code></p></td>\n      <td><p><code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>height</code></p></td>\n      <td><p><code>td</code>, <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>hspace</code></p></td>\n      <td><p><code>embed</code>, <code>iframe</code>, <code>img</code>, <code>input</code>, <code>object</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>ismap</code></p></td>\n      <td><p><code>input</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>language</code></p></td>\n      <td><p><code>script</code> (<code>language=\"javascript\"</code>, case insensitive, allowed)</p></td>\n      <td> <p>use the <code>type</code> attribute instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>link</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>lowsrc</code></p></td>\n      <td><p><code>img</code></p></td>\n      <td> <p>Use a progressive JPEG image (given in the <code>src</code> attribute), instead of using two separate images</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginbottom</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginheight</code></p></td>\n      <td><p><code>body</code>, <code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginleft</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginright</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>margintop</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginwidth</code></p></td>\n      <td><p><code>body</code>, <code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>methods</code></p></td>\n      <td><p><code>a</code>, <code>link</code></p></td>\n      <td> <p>Use the HTTP OPTIONS feature instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>name</code></p></td>\n      <td><p><code>a</code> (<code>name=\"[a's element id]\"</code> allowed), <code>embed</code>, <code>img</code>, <code>option</code></p></td>\n      <td> <p>Use the <code>id</code> attribute instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>nohref</code></p></td>\n      <td><p><code>area</code></p></td>\n      <td> <p>Omitting the <code>href</code> attribute is sufficient; the <code>nohref</code> attribute is unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>noshade</code></p></td>\n      <td><p><code>hr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>nowrap</code></p></td>\n      <td><p><code>td</code>, <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>profile</code></p></td>\n      <td><p><code>head</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>rules</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>scheme</code></p></td>\n      <td><p><code>meta</code></p></td>\n      <td> <p>Use only one scheme per field, or make the scheme declaration part of the value</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>scope</code></p></td>\n      <td><p><code>td</code></p></td>\n      <td> <p>Use <code>th</code> elements for heading cells</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>scrolling</code></p></td>\n      <td><p><code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>shape</code></p></td>\n      <td><p><code>a</code></p></td>\n      <td> <p>Use <code>area</code> instead of <code>a</code> for image maps</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>size</code></p></td>\n      <td><p><code>hr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>standby</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Optimize the linked resource so that it loads quickly or, at least, incrementally</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>summary</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td>\n        <ul>\n          <li> Use a <code>p</code> element before the <code>table</code> </li>\n          <li> In the table’s <code>caption</code> </li>\n          <li> Before the table, in a <code>figcaption</code> in the same <code>figure</code> as the <code>table</code> </li>\n        </ul> </td>\n    </tr>\n    <tr>\n      <td><p><code>target</code></p></td>\n      <td><p><code>link</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>text</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>type</code></p></td>\n      <td><p><code>li</code>, <code>param</code>, <code>ul</code></p></td>\n      <td> <p><code>param</code> element is deprecated. Use the <code>data</code> attribute of the <code>object</code> element to set the URL of the\n      external resource. Use CSS for <code>li</code> and <code>ul</code> elements</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>urn</code></p></td>\n      <td><p><code>a</code>, <code>link</code></p></td>\n      <td> <p>Specify the preferred persistent identifier using the <code>href</code> attribute</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>usemap</code></p></td>\n      <td><p><code>input</code></p></td>\n      <td> <p>Use the <code>img</code> element for image maps</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>valign</code></p></td>\n      <td><p><code>col</code>, <code>tbody</code>, <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>valuetype</code></p></td>\n      <td><p><code>param</code></p></td>\n      <td> <p><code>param</code> element is deprecated. Use the <code>data</code> attribute of the <code>object</code> element to set the URL of the\n      external resource</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>version</code></p></td>\n      <td><p><code>html</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>vlink</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>vspace</code></p></td>\n      <td><p><code>embed</code>, <code>iframe</code>, <code>img</code>, <code>input</code>, <code>object</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>width</code></p></td>\n      <td><p><code>col</code>, <code>hr</code>, <code>pre</code>, <code>table</code>, <code>td</code>, <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n  </tbody>\n</table>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;table&gt;\n\t&lt;tr&gt;\n\t\t&lt;td width=\"50%\"&gt;1st cell&lt;/td&gt;&lt;!-- Noncompliant: 'width' attribute is deprecated --&gt;\n\t\t&lt;td width=\"50%\"&gt;1st cell&lt;/td&gt;\n\t&lt;/tr&gt;\n&lt;/table&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;style&gt;\n\t.equal-width td { width: 50%; }\n&lt;/style&gt;\n&lt;table class=\"equal-width\"&gt;\n\t&lt;tr&gt;\n\t\t&lt;td&gt;1st cell&lt;/td&gt;\n\t\t&lt;td&gt;2nd cell&lt;/td&gt;\n\t&lt;/tr&gt;\n&lt;/table&gt;\n</pre>\n<h3>Documentation</h3>\n<ul>\n  <li> W3C, <a href=\"https://www.w3.org/TR/html5-diff\">Differences in HTML5</a> </li>\n  <li> WHATWG, <a href=\"https://html.spec.whatwg.org/multipage/obsolete.html\">Obsolete Features</a> </li>\n  <li> HTML Standard, <a href=\"https://html.spec.whatwg.org/#non-conforming-features\">Non-conforming features</a> </li>\n</ul>\n<p>HTML5 is the fifth and current major version of HTML. HTML5 introduced many new elements, attributes, and behaviors. While HTML5 also aimed to be\nbackward-compatible with common parsing of older versions of HTML, many old attributes were deprecated.</p>\n<p>The main reason these attributes were deprecated in HTML5 is to separate the concerns of content structure (HTML) and presentation (CSS). This is a\nfundamental principle of modern web design known as the separation of concerns, which provides multiple advantages:</p>\n<ul>\n  <li> Maintainability: By separating content and presentation, you can change the look and feel of a website without touching the HTML. You only need\n  to modify the CSS. </li>\n  <li> Reusability: CSS styles can be reused across multiple pages, making it easier to keep a consistent look and feel across an entire website.\n  </li>\n  <li> Accessibility: Using CSS for presentation makes it easier to create websites that are accessible to users with disabilities. For example,\n  screen readers can more easily interpret web content when it’s separated from the presentation. </li>\n</ul>\n<h3>What is the potential impact?</h3>\n<p>Deprecated attributes are not guaranteed to be supported by all browsers, especially newer ones. This can lead to inconsistent behavior or\nappearance across different browsers.</p>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "c5c30584-283c-49f2-adfc-d80588f36c06",
+        "severity": "MAJOR",
+        "message": "Remove this deprecated \"valign\" attribute.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/ownerDetails.html",
+        "line": 65,
+        "type": "CODE_SMELL",
+        "rule": "Web:S1827",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Attributes deprecated in HTML5 should not be used",
+            "description": "<p>To ensure the best user experience, deprecated attributes should not be used. This table lists the deprecated attributes this rule is checking for,\nand how to fix them.</p>\n<table>\n  <colgroup>\n    <col style=\"width: 33.3333%;\">\n    <col style=\"width: 33.3333%;\">\n    <col style=\"width: 33.3334%;\">\n  </colgroup>\n  <thead>\n    <tr>\n      <th>Attribute</th>\n      <th>Removed from</th>\n      <th>Fix</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td><p><code>accept</code></p></td>\n      <td><p><code>form</code></p></td>\n      <td> <p>Use the <code>accept</code> attribute directly on the <code>input</code> elements instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>align</code></p></td>\n      <td><p><code>caption</code>, <code>col</code>, <code>div</code>, <code>embed</code>, <code>h1-h6</code>, <code>hr</code>, <code>iframe</code>,\n      <code>img</code>, <code>input</code>, <code>legend</code>, <code>object</code>, <code>p</code>, <code>table</code>, <code>tbody</code>,\n      <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>alink</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>allowtransparency</code></p></td>\n      <td><p><code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>archive</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>axis</code></p></td>\n      <td><p><code>td</code>, <code>th</code></p></td>\n      <td> <p>Use the <code>scope</code> attribute on the relevant <code>th</code></p> </td>\n    </tr>\n    <tr>\n      <td><p><code>background</code></p></td>\n      <td><p><code>body</code>, <code>table</code>, <code>thead</code>, <code>tbody</code>, <code>tfoot</code>, <code>tr</code>, <code>td</code>,\n      <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>bgcolor</code></p></td>\n      <td><p><code>body</code>, <code>table</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>border</code></p></td>\n      <td><p><code>img</code> (<code>border=\"0\"</code> allowed), <code>object</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>bordercolor</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>cellpadding</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>cellspacing</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>char</code></p></td>\n      <td><p><code>col</code>, <code>tbody</code>, <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>charoff</code></p></td>\n      <td><p><code>col</code>, <code>tbody</code>, <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>charset</code></p></td>\n      <td><p><code>a</code>, <code>link</code></p></td>\n      <td> <p>Use an HTTP <code>`Content-Type`</code> header on the linked resource instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>classid</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>clear</code></p></td>\n      <td><p><code>br</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>code</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>codebase</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>codetype</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Use the <code>data</code> and <code>type</code> attributes to invoke plugins</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>color</code></p></td>\n      <td><p><code>hr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>compact</code></p></td>\n      <td><p><code>dl</code>, <code>ol</code>, <code>ul</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>coords</code></p></td>\n      <td><p><code>a</code></p></td>\n      <td> <p>Use <code>area</code> instead of <code>a</code> for image maps</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>datafld</code></p></td>\n      <td><p><code>a</code>, <code>applet</code>, <code>button</code>, <code>div</code>, <code>fieldset</code>, <code>frame</code>,\n      <code>iframe</code>, <code>img</code>, <code>input</code>, <code>label</code>, <code>legend</code>, <code>marquee</code>, <code>object</code>,\n      <code>param</code>, <code>select</code>, <code>span</code>, <code>textarea</code></p></td>\n      <td> <p>Use script and a mechanism such as <code>XMLHttpRequest</code> to populate the page dynamically</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>dataformatas</code></p></td>\n      <td><p><code>button</code>, <code>div</code>, <code>input</code>, <code>label</code>, <code>legend</code>, <code>marquee</code>,\n      <code>object</code>, <code>option</code>, <code>select</code>, <code>span</code>, <code>table</code></p></td>\n      <td> <p>Use script and a mechanism such as <code>XMLHttpRequest</code> to populate the page dynamically</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>datapagesize</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>datasrc</code></p></td>\n      <td><p><code>a</code>, <code>applet</code>, <code>button</code>, <code>div</code>, <code>frame</code>, <code>iframe</code>, <code>img</code>,\n      <code>input</code>, <code>label</code>, <code>legend</code>, <code>marquee</code>, <code>object</code>, <code>option</code>,\n      <code>select</code>, <code>span</code>, <code>table</code>, <code>textarea</code></p></td>\n      <td> <p>Use script and a mechanism such as <code>XMLHttpRequest</code> to populate the page dynamically</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>declare</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Repeat the <code>object</code> element completely each time the resource is to be reused</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>event</code></p></td>\n      <td><p><code>script</code></p></td>\n      <td> <p>Use DOM events mechanisms to register event listeners</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>for</code></p></td>\n      <td><p><code>script</code></p></td>\n      <td> <p>Use DOM events mechanisms to register event listeners</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>frame</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>frameborder</code></p></td>\n      <td><p><code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>height</code></p></td>\n      <td><p><code>td</code>, <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>hspace</code></p></td>\n      <td><p><code>embed</code>, <code>iframe</code>, <code>img</code>, <code>input</code>, <code>object</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>ismap</code></p></td>\n      <td><p><code>input</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>language</code></p></td>\n      <td><p><code>script</code> (<code>language=\"javascript\"</code>, case insensitive, allowed)</p></td>\n      <td> <p>use the <code>type</code> attribute instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>link</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>lowsrc</code></p></td>\n      <td><p><code>img</code></p></td>\n      <td> <p>Use a progressive JPEG image (given in the <code>src</code> attribute), instead of using two separate images</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginbottom</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginheight</code></p></td>\n      <td><p><code>body</code>, <code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginleft</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginright</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>margintop</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>marginwidth</code></p></td>\n      <td><p><code>body</code>, <code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>methods</code></p></td>\n      <td><p><code>a</code>, <code>link</code></p></td>\n      <td> <p>Use the HTTP OPTIONS feature instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>name</code></p></td>\n      <td><p><code>a</code> (<code>name=\"[a's element id]\"</code> allowed), <code>embed</code>, <code>img</code>, <code>option</code></p></td>\n      <td> <p>Use the <code>id</code> attribute instead</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>nohref</code></p></td>\n      <td><p><code>area</code></p></td>\n      <td> <p>Omitting the <code>href</code> attribute is sufficient; the <code>nohref</code> attribute is unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>noshade</code></p></td>\n      <td><p><code>hr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>nowrap</code></p></td>\n      <td><p><code>td</code>, <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>profile</code></p></td>\n      <td><p><code>head</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>rules</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>scheme</code></p></td>\n      <td><p><code>meta</code></p></td>\n      <td> <p>Use only one scheme per field, or make the scheme declaration part of the value</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>scope</code></p></td>\n      <td><p><code>td</code></p></td>\n      <td> <p>Use <code>th</code> elements for heading cells</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>scrolling</code></p></td>\n      <td><p><code>iframe</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>shape</code></p></td>\n      <td><p><code>a</code></p></td>\n      <td> <p>Use <code>area</code> instead of <code>a</code> for image maps</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>size</code></p></td>\n      <td><p><code>hr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>standby</code></p></td>\n      <td><p><code>object</code></p></td>\n      <td> <p>Optimize the linked resource so that it loads quickly or, at least, incrementally</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>summary</code></p></td>\n      <td><p><code>table</code></p></td>\n      <td>\n        <ul>\n          <li> Use a <code>p</code> element before the <code>table</code> </li>\n          <li> In the table’s <code>caption</code> </li>\n          <li> Before the table, in a <code>figcaption</code> in the same <code>figure</code> as the <code>table</code> </li>\n        </ul> </td>\n    </tr>\n    <tr>\n      <td><p><code>target</code></p></td>\n      <td><p><code>link</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>text</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>type</code></p></td>\n      <td><p><code>li</code>, <code>param</code>, <code>ul</code></p></td>\n      <td> <p><code>param</code> element is deprecated. Use the <code>data</code> attribute of the <code>object</code> element to set the URL of the\n      external resource. Use CSS for <code>li</code> and <code>ul</code> elements</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>urn</code></p></td>\n      <td><p><code>a</code>, <code>link</code></p></td>\n      <td> <p>Specify the preferred persistent identifier using the <code>href</code> attribute</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>usemap</code></p></td>\n      <td><p><code>input</code></p></td>\n      <td> <p>Use the <code>img</code> element for image maps</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>valign</code></p></td>\n      <td><p><code>col</code>, <code>tbody</code>, <code>thead</code>, <code>tfoot</code>, <code>td</code>, <code>th</code>, <code>tr</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>valuetype</code></p></td>\n      <td><p><code>param</code></p></td>\n      <td> <p><code>param</code> element is deprecated. Use the <code>data</code> attribute of the <code>object</code> element to set the URL of the\n      external resource</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>version</code></p></td>\n      <td><p><code>html</code></p></td>\n      <td> <p>Unnecessary. Omit it altogether</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>vlink</code></p></td>\n      <td><p><code>body</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>vspace</code></p></td>\n      <td><p><code>embed</code>, <code>iframe</code>, <code>img</code>, <code>input</code>, <code>object</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n    <tr>\n      <td><p><code>width</code></p></td>\n      <td><p><code>col</code>, <code>hr</code>, <code>pre</code>, <code>table</code>, <code>td</code>, <code>th</code></p></td>\n      <td> <p>Use CSS</p> </td>\n    </tr>\n  </tbody>\n</table>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;table&gt;\n\t&lt;tr&gt;\n\t\t&lt;td width=\"50%\"&gt;1st cell&lt;/td&gt;&lt;!-- Noncompliant: 'width' attribute is deprecated --&gt;\n\t\t&lt;td width=\"50%\"&gt;1st cell&lt;/td&gt;\n\t&lt;/tr&gt;\n&lt;/table&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;style&gt;\n\t.equal-width td { width: 50%; }\n&lt;/style&gt;\n&lt;table class=\"equal-width\"&gt;\n\t&lt;tr&gt;\n\t\t&lt;td&gt;1st cell&lt;/td&gt;\n\t\t&lt;td&gt;2nd cell&lt;/td&gt;\n\t&lt;/tr&gt;\n&lt;/table&gt;\n</pre>\n<h3>Documentation</h3>\n<ul>\n  <li> W3C, <a href=\"https://www.w3.org/TR/html5-diff\">Differences in HTML5</a> </li>\n  <li> WHATWG, <a href=\"https://html.spec.whatwg.org/multipage/obsolete.html\">Obsolete Features</a> </li>\n  <li> HTML Standard, <a href=\"https://html.spec.whatwg.org/#non-conforming-features\">Non-conforming features</a> </li>\n</ul>\n<p>HTML5 is the fifth and current major version of HTML. HTML5 introduced many new elements, attributes, and behaviors. While HTML5 also aimed to be\nbackward-compatible with common parsing of older versions of HTML, many old attributes were deprecated.</p>\n<p>The main reason these attributes were deprecated in HTML5 is to separate the concerns of content structure (HTML) and presentation (CSS). This is a\nfundamental principle of modern web design known as the separation of concerns, which provides multiple advantages:</p>\n<ul>\n  <li> Maintainability: By separating content and presentation, you can change the look and feel of a website without touching the HTML. You only need\n  to modify the CSS. </li>\n  <li> Reusability: CSS styles can be reused across multiple pages, making it easier to keep a consistent look and feel across an entire website.\n  </li>\n  <li> Accessibility: Using CSS for presentation makes it easier to create websites that are accessible to users with disabilities. For example,\n  screen readers can more easily interpret web content when it’s separated from the presentation. </li>\n</ul>\n<h3>What is the potential impact?</h3>\n<p>Deprecated attributes are not guaranteed to be supported by all browsers, especially newer ones. This can lead to inconsistent behavior or\nappearance across different browsers.</p>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "6caf00e2-4e3f-436d-90fd-862acd272a74",
+        "severity": "MAJOR",
+        "message": "A form label must be associated with a control.",
+        "component": "spring-petclinic:src/main/resources/templates/pets/createOrUpdatePetForm.html",
+        "line": 14,
+        "type": "CODE_SMELL",
+        "rule": "Web:S6853",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Label elements should have a text label and an associated control",
+            "description": "<p>A <code>&lt;label&gt;</code> element should wrap a control element or have an <code>&lt;htmlFor&gt;</code> attribute referencing a control and text\ncontent.</p>\n<p>When a label element lacks a text label or an associated control, it can lead to several issues:</p>\n<ol>\n  <li> <strong>Poor Accessibility</strong>: Screen readers rely on correctly associated labels to describe the function of the form control. If the\n  label is not properly associated with a control, it can make the form difficult or impossible for visually impaired users to understand or interact\n  with. </li>\n  <li> <strong>Confusing User Interface</strong>: Labels provide users with clear instructions about what information is required in a form control.\n  Without a properly associated label, users might not understand what input is expected, leading to confusion and potential misuse of the form. </li>\n  <li> <strong>Code Maintainability</strong>: Properly structured and labeled code is easier to read, understand, and maintain. When labels are not\n  correctly associated, it can make the code more difficult to navigate and debug, especially for new developers or those unfamiliar with the\n  codebase. </li>\n</ol>\n<p>Control elements are: * <code>&lt;input&gt;</code> * <code>&lt;meter&gt;</code> * <code>&lt;output&gt;</code> * <code>&lt;progress&gt;</code> *\n<code>&lt;select&gt;</code> * <code>&lt;textarea&gt;</code></p>\n<h3>Exceptions</h3>\n<p>Custom components may contain control elements, therefore label elements containing custom elements do not raise issues.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> MDN web docs - <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label\">The Label element</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships\">Info and Relationships</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions\">Labels or Instructions</a> </li>\n</ul>\n<p>If you have a pair of control and <code>&lt;label&gt;</code> elements, make sure that the <code>&lt;label&gt;</code> wraps the control element. If\nyou lack a control element, add one.</p>\n<p>It is strongly recommended to avoid using generated <code>id</code>s since they must be deterministic.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;input type=\"text\" /&gt;\n&lt;label&gt;Favorite food&lt;/label&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;label&gt;\n  &lt;input type=\"text\" /&gt;\n  Favorite food\n&lt;/label&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "9e3248d2-409a-4bde-acfa-fdd6afb5400d",
+        "severity": "MINOR",
+        "message": "Add an \"alt\" attribute to this image.",
+        "component": "spring-petclinic:src/main/resources/templates/welcome.html",
+        "line": 10,
+        "type": "CODE_SMELL",
+        "rule": "Web:ImgWithoutAltCheck",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Image, area and button with image elements should have an \"alt\" attribute",
+            "description": "<p>Add an alternative text to the HTML element.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;img src=\"foo.png\" /&gt; &lt;!-- missing `alt` attribute --&gt;\n&lt;input type=\"image\" src=\"bar.png\" /&gt; &lt;!-- missing `alt` attribute --&gt;\n&lt;input type=\"image\" src=\"bar.png\" alt=\"\" /&gt; &lt;!-- empty `alt` attribute on &lt;input&gt; --&gt;\n\n&lt;img src=\"house.gif\" usemap=\"#map1\"\n    alt=\"rooms of the house.\" /&gt;\n&lt;map id=\"map1\" name=\"map1\"&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,42,42\"\n    href=\"bedroom.html\"/&gt; &lt;!-- missing `alt` attribute --&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,21,21\"\n    href=\"lounge.html\" alt=\"\"/&gt; &lt;!-- empty `alt` attribute on &lt;area&gt; --&gt;\n&lt;/map&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;img src=\"foo.png\" alt=\"Some textual description of foo.png\" /&gt;\n&lt;input type=\"image\" src=\"bar.png\" alt=\"Textual description of bar.png\" /&gt;\n\n&lt;img src=\"house.gif\" usemap=\"#map1\"\n    alt=\"rooms of the house.\" /&gt;\n&lt;map id=\"map1\" name=\"map1\"&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,42,42\"\n    href=\"bedroom.html\" alt=\"Bedroom\" /&gt;\n  &lt;area shape=\"rect\" coords=\"0,0,21,21\"\n    href=\"lounge.html\" alt=\"Lounge\"/&gt;\n&lt;/map&gt;\n</pre>\n<p>The <code>alt</code> attribute provides a textual alternative to an image.</p>\n<p>It is used whenever the actual image cannot be rendered.</p>\n<p>Common reasons for that include:</p>\n<ul>\n  <li> The image can no longer be found </li>\n  <li> Visually impaired users using a screen reader software </li>\n  <li> Image loading is disabled, to reduce data consumption on mobile phones </li>\n</ul>\n<p>It is also very important not to set an <code>alt</code> attribute to a non-informative value. For example, <code>&lt;img ... alt=\"logo\"&gt;</code>\nis useless as it doesn’t give any information to the user. In this case, as for any other decorative image, it is better to use a CSS background image\ninstead of an <code>&lt;img&gt;</code> tag. If using CSS <code>background-image</code> is not possible, an empty <code>alt=\"\"</code> is tolerated. See\nExceptions below.</p>\n<p>This rule raises an issue when:</p>\n<ul>\n  <li> An <code>&lt;input type=\"image\"&gt;</code> or <code>&lt;area&gt;</code> element has no <code>alt</code> attribute or it holds an empty string\n  value. </li>\n  <li> An <code>&lt;img&gt;</code> element has no <code>alt</code> attribute. </li>\n</ul>\n<h3>Exceptions</h3>\n<p><code>&lt;img&gt;</code> elements with an empty string&nbsp;<code>alt=\"\"</code> attribute won’t raise any issue. However, this way should be used\nin two cases only:</p>\n<p>When the image is decorative and it is not possible to use a CSS background image. For example, when the decorative <code>&lt;img&gt;</code> is\ngenerated via javascript with a source image coming from a database, it is better to use an <code>&lt;img alt=\"\"&gt;</code> tag rather than generate\nCSS code.</p>\n<pre>\n&lt;li *ngFor=\"let image of images\"&gt;\n    &lt;img [src]=\"image\" alt=\"\"&gt;\n&lt;/li&gt;\n</pre>\n<p>When the image is not decorative but its <code>alt</code> text would repeat a nearby text. For example, images contained in links should not\nduplicate the link’s text in their <code>alt</code> attribute, as it would make the screen reader repeat the text twice.</p>\n<pre>\n&lt;a href=\"flowers.html\"&gt;\n    &lt;img src=\"tulip.gif\" alt=\"\" /&gt;\n    A blooming tulip\n&lt;/a&gt;\n</pre>\n<p>In all other cases you should use CSS background images.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/tutorials/images/decision-tree/\">W3C WAI&nbsp;Web Accessibility Tutorials</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H24.html\">Providing text alternatives for the area elements of image maps</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H36.html\">Using alt attributes on images used as submit buttons</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H37.html\">Using alt attributes on img elements</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H67.html\">Using null alt text and no title attribute on img elements for images that AT\n  should ignore</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/TR/WCAG20-TECHS/H2.html\">Combining adjacent image and text links for the same resource</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-text-equiv-all\">Non-text Content</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-navigation-mechanisms-refs\">Link Purpose (In Context)</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-navigation-mechanisms-link\">Link Purpose (Link Only)</a> </li>\n</ul>",
+            "rule_severity": "MINOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "baada0c6-b443-4f9c-911e-6f7c6e6ef790",
+        "severity": "CRITICAL",
+        "message": "Define a constant instead of duplicating this literal \"George\" 3 times.",
+        "component": "spring-petclinic:src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java",
+        "line": 74,
+        "type": "CODE_SMELL",
+        "rule": "java:S1192",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "String literals should not be duplicated",
+            "description": "<p>Use constants to replace the duplicated string literals. Constants can be referenced from many places, but only need to be updated in a single\nplace.</p>\n\n<h4>Noncompliant code example</h4>\n<p>With the default threshold of 3:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic void run() {\n  prepare(\"action1\");                              // Noncompliant - \"action1\" is duplicated 3 times\n  execute(\"action1\");\n  release(\"action1\");\n}\n\n@SuppressWarning(\"all\")                            // Compliant - annotations are excluded\nprivate void method1() { /* ... */ }\n@SuppressWarning(\"all\")\nprivate void method2() { /* ... */ }\n\npublic String printInQuotes(String a, String b) {\n  return \"'\" + a + \"'\" + b + \"'\";               // Compliant - literal \"'\" has less than 5 characters and is excluded\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nprivate static final String ACTION_1 = \"action1\";  // Compliant\n\npublic void run() {\n  prepare(ACTION_1);                               // Compliant\n  execute(ACTION_1);\n  release(ACTION_1);\n}\n</pre>\n<p>Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all\noccurrences.</p>\n<h3>Exceptions</h3>\n<p>To prevent generating some false-positives, literals having less than 5 characters are excluded.</p>",
+            "rule_severity": "CRITICAL",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "d54351ef-e576-4958-a902-2fae19d04a91",
+        "severity": "CRITICAL",
+        "message": "Define a constant instead of duplicating this literal \"110 W. Liberty St.\" 3 times.",
+        "component": "spring-petclinic:src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java",
+        "line": 76,
+        "type": "CODE_SMELL",
+        "rule": "java:S1192",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "String literals should not be duplicated",
+            "description": "<p>Use constants to replace the duplicated string literals. Constants can be referenced from many places, but only need to be updated in a single\nplace.</p>\n\n<h4>Noncompliant code example</h4>\n<p>With the default threshold of 3:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic void run() {\n  prepare(\"action1\");                              // Noncompliant - \"action1\" is duplicated 3 times\n  execute(\"action1\");\n  release(\"action1\");\n}\n\n@SuppressWarning(\"all\")                            // Compliant - annotations are excluded\nprivate void method1() { /* ... */ }\n@SuppressWarning(\"all\")\nprivate void method2() { /* ... */ }\n\npublic String printInQuotes(String a, String b) {\n  return \"'\" + a + \"'\" + b + \"'\";               // Compliant - literal \"'\" has less than 5 characters and is excluded\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nprivate static final String ACTION_1 = \"action1\";  // Compliant\n\npublic void run() {\n  prepare(ACTION_1);                               // Compliant\n  execute(ACTION_1);\n  release(ACTION_1);\n}\n</pre>\n<p>Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all\noccurrences.</p>\n<h3>Exceptions</h3>\n<p>To prevent generating some false-positives, literals having less than 5 characters are excluded.</p>",
+            "rule_severity": "CRITICAL",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "d0a637b3-4184-4826-8c27-78c757355d82",
+        "severity": "CRITICAL",
+        "message": "Define a constant instead of duplicating this literal \"Madison\" 3 times.",
+        "component": "spring-petclinic:src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java",
+        "line": 77,
+        "type": "CODE_SMELL",
+        "rule": "java:S1192",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "String literals should not be duplicated",
+            "description": "<p>Use constants to replace the duplicated string literals. Constants can be referenced from many places, but only need to be updated in a single\nplace.</p>\n\n<h4>Noncompliant code example</h4>\n<p>With the default threshold of 3:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic void run() {\n  prepare(\"action1\");                              // Noncompliant - \"action1\" is duplicated 3 times\n  execute(\"action1\");\n  release(\"action1\");\n}\n\n@SuppressWarning(\"all\")                            // Compliant - annotations are excluded\nprivate void method1() { /* ... */ }\n@SuppressWarning(\"all\")\nprivate void method2() { /* ... */ }\n\npublic String printInQuotes(String a, String b) {\n  return \"'\" + a + \"'\" + b + \"'\";               // Compliant - literal \"'\" has less than 5 characters and is excluded\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nprivate static final String ACTION_1 = \"action1\";  // Compliant\n\npublic void run() {\n  prepare(ACTION_1);                               // Compliant\n  execute(ACTION_1);\n  release(ACTION_1);\n}\n</pre>\n<p>Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all\noccurrences.</p>\n<h3>Exceptions</h3>\n<p>To prevent generating some false-positives, literals having less than 5 characters are excluded.</p>",
+            "rule_severity": "CRITICAL",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "eb87d989-519c-4187-b714-e92ab1740ebf",
+        "severity": "CRITICAL",
+        "message": "Define a constant instead of duplicating this literal \"6085551023\" 3 times.",
+        "component": "spring-petclinic:src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java",
+        "line": 78,
+        "type": "CODE_SMELL",
+        "rule": "java:S1192",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "String literals should not be duplicated",
+            "description": "<p>Use constants to replace the duplicated string literals. Constants can be referenced from many places, but only need to be updated in a single\nplace.</p>\n\n<h4>Noncompliant code example</h4>\n<p>With the default threshold of 3:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic void run() {\n  prepare(\"action1\");                              // Noncompliant - \"action1\" is duplicated 3 times\n  execute(\"action1\");\n  release(\"action1\");\n}\n\n@SuppressWarning(\"all\")                            // Compliant - annotations are excluded\nprivate void method1() { /* ... */ }\n@SuppressWarning(\"all\")\nprivate void method2() { /* ... */ }\n\npublic String printInQuotes(String a, String b) {\n  return \"'\" + a + \"'\" + b + \"'\";               // Compliant - literal \"'\" has less than 5 characters and is excluded\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nprivate static final String ACTION_1 = \"action1\";  // Compliant\n\npublic void run() {\n  prepare(ACTION_1);                               // Compliant\n  execute(ACTION_1);\n  release(ACTION_1);\n}\n</pre>\n<p>Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all\noccurrences.</p>\n<h3>Exceptions</h3>\n<p>To prevent generating some false-positives, literals having less than 5 characters are excluded.</p>",
+            "rule_severity": "CRITICAL",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "2d0880c8-962d-4049-ac61-cf452980bbdf",
+        "severity": "MAJOR",
+        "message": "Remove this commented out code.",
+        "component": "spring-petclinic:src/main/scss/header.scss",
+        "line": 40,
+        "type": "CODE_SMELL",
+        "rule": "css:S125",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Sections of code should not be commented out",
+            "description": "<p>Commented-out code distracts the focus from the actual executed code. It creates a noise that increases maintenance code. And because it is never\nexecuted, it quickly becomes out of date and invalid.</p>\n<p>Commented-out code should be deleted and can be retrieved from source control history if required.</p>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "19838f88-cf9e-4aef-a5d8-10eb1550dcbd",
+        "severity": "MAJOR",
+        "message": "Remove this commented out code.",
+        "component": "spring-petclinic:src/main/scss/typography.scss",
+        "line": 53,
+        "type": "CODE_SMELL",
+        "rule": "css:S125",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Sections of code should not be commented out",
+            "description": "<p>Commented-out code distracts the focus from the actual executed code. It creates a noise that increases maintenance code. And because it is never\nexecuted, it quickly becomes out of date and invalid.</p>\n<p>Commented-out code should be deleted and can be retrieved from source control history if required.</p>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "c26f9a37-72ad-4739-b09d-f62601afcc75",
+        "severity": "MAJOR",
+        "message": "Remove this commented out code.",
+        "component": "spring-petclinic:src/main/scss/typography.scss",
+        "line": 54,
+        "type": "CODE_SMELL",
+        "rule": "css:S125",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Sections of code should not be commented out",
+            "description": "<p>Commented-out code distracts the focus from the actual executed code. It creates a noise that increases maintenance code. And because it is never\nexecuted, it quickly becomes out of date and invalid.</p>\n<p>Commented-out code should be deleted and can be retrieved from source control history if required.</p>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "f0f5ff98-43c2-4d8a-8a0a-ad66bbec5691",
+        "severity": "CRITICAL",
+        "message": "Define a constant instead of duplicating this literal \"owners/createOrUpdateOwnerForm\" 4 times.",
+        "component": "spring-petclinic:src/test/java/org/springframework/samples/petclinic/owner/OwnerControllerTests.java",
+        "line": 111,
+        "type": "CODE_SMELL",
+        "rule": "java:S1192",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "String literals should not be duplicated",
+            "description": "<p>Use constants to replace the duplicated string literals. Constants can be referenced from many places, but only need to be updated in a single\nplace.</p>\n\n<h4>Noncompliant code example</h4>\n<p>With the default threshold of 3:</p>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\npublic void run() {\n  prepare(\"action1\");                              // Noncompliant - \"action1\" is duplicated 3 times\n  execute(\"action1\");\n  release(\"action1\");\n}\n\n@SuppressWarning(\"all\")                            // Compliant - annotations are excluded\nprivate void method1() { /* ... */ }\n@SuppressWarning(\"all\")\nprivate void method2() { /* ... */ }\n\npublic String printInQuotes(String a, String b) {\n  return \"'\" + a + \"'\" + b + \"'\";               // Compliant - literal \"'\" has less than 5 characters and is excluded\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nprivate static final String ACTION_1 = \"action1\";  // Compliant\n\npublic void run() {\n  prepare(ACTION_1);                               // Compliant\n  execute(ACTION_1);\n  release(ACTION_1);\n}\n</pre>\n<p>Duplicated string literals make the process of refactoring complex and error-prone, as any change would need to be propagated on all\noccurrences.</p>\n<h3>Exceptions</h3>\n<p>To prevent generating some false-positives, literals having less than 5 characters are excluded.</p>",
+            "rule_severity": "CRITICAL",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "edfd827e-2e32-47bb-a652-2cbb05840302",
+        "severity": "MAJOR",
+        "message": "Add a private constructor to hide the implicit public one.",
+        "component": "spring-petclinic:src/test/java/org/springframework/samples/petclinic/service/EntityUtils.java",
+        "line": 33,
+        "type": "CODE_SMELL",
+        "rule": "java:S1118",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Utility classes should not have public constructors",
+            "description": "<p>To prevent the class from being instantiated, you should define a non-public constructor. This will prevent the compiler from implicitly generating\na public parameterless constructor.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\nclass StringUtils { // Noncompliant\n\n  public static String concatenate(String s1, String s2) {\n    return s1 + s2;\n  }\n\n}\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\nclass StringUtils { // Compliant\n\n  private StringUtils() {\n    throw new IllegalStateException(\"Utility class\");\n  }\n\n  public static String concatenate(String s1, String s2) {\n    return s1 + s2;\n  }\n\n}\n</pre>\n<p>Whenever there are portions of code that are duplicated and do not depend on the state of their container class, they can be centralized inside a\n\"utility class\". A utility class is a class that only has static members, hence it should not be instantiated.</p>\n<h3>Exceptions</h3>\n<p>When a class contains <code>public static void main(String[] args)</code> method it is not considered as a utility class and will be ignored by\nthis rule.</p>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    }
+]
