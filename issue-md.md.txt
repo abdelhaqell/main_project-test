@@ -1,0 +1,419 @@
+### Issue 1
+**File:** `src/main/resources/templates/owners/createOrUpdateOwnerForm.html`  
+**Line:** 1  
+**Problem:** "<!DOCTYPE>" declarations should appear before "<html>" tags  
+**SonarQube message:** Insert a <!DOCTYPE> declaration to before this <html> tag.  
+**Description:**
+<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret
+the various elements.</p>
+<p>Validators also rely on it to know which rules to enforce.</p>
+<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;html&gt;  &lt;!-- Noncompliant --&gt;
+...
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;  &lt;!-- Compliant --&gt;
+...
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 2
+**File:** `src/main/resources/templates/owners/createOrUpdateOwnerForm.html`  
+**Line:** 1  
+**Problem:** "<title>" should be present in all pages  
+**SonarQube message:** Add a <title> tag to this page.  
+**Description:**
+<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>
+<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a
+<code>&lt;head&gt;</code> one.</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;html&gt;         &lt;!-- Non-Compliant --&gt;
+
+&lt;body&gt;
+...
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;html&gt;         &lt;!-- Compliant --&gt;
+
+&lt;head&gt;
+&lt;title&gt;Some relevant title&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+...
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 3
+**File:** `src/main/resources/templates/owners/createOrUpdateOwnerForm.html`  
+**Line:** 1  
+**Problem:** "<html>" element should have a language attribute  
+**SonarQube message:** Add "lang" and/or "xml:lang" attributes to this "<html>" element  
+**Description:**
+<ul>
+  <li> <a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H57">WCAG2, H57</a> - Using language attributes on the html element </li>
+  <li> <a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id">WCAG2, 3.1.1</a> - Language of Page </li>
+</ul>
+<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the
+default language of a document.</p>
+<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and
+accent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>
+<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation
+tools.</p>
+<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>
+<p>&nbsp;</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt; &lt;!-- Noncompliant --&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en" xml:lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 4
+**File:** `src/main/resources/templates/owners/findOwners.html`  
+**Line:** 1  
+**Problem:** "<html>" element should have a language attribute  
+**SonarQube message:** Add "lang" and/or "xml:lang" attributes to this "<html>" element  
+**Description:**
+<ul>
+  <li> <a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H57">WCAG2, H57</a> - Using language attributes on the html element </li>
+  <li> <a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id">WCAG2, 3.1.1</a> - Language of Page </li>
+</ul>
+<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the
+default language of a document.</p>
+<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and
+accent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>
+<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation
+tools.</p>
+<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>
+<p>&nbsp;</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt; &lt;!-- Noncompliant --&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en" xml:lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 5
+**File:** `src/main/resources/templates/owners/findOwners.html`  
+**Line:** 1  
+**Problem:** "<title>" should be present in all pages  
+**SonarQube message:** Add a <title> tag to this page.  
+**Description:**
+<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>
+<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a
+<code>&lt;head&gt;</code> one.</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;html&gt;         &lt;!-- Non-Compliant --&gt;
+
+&lt;body&gt;
+...
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;html&gt;         &lt;!-- Compliant --&gt;
+
+&lt;head&gt;
+&lt;title&gt;Some relevant title&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+...
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 6
+**File:** `src/main/resources/templates/owners/findOwners.html`  
+**Line:** 1  
+**Problem:** "<!DOCTYPE>" declarations should appear before "<html>" tags  
+**SonarQube message:** Insert a <!DOCTYPE> declaration to before this <html> tag.  
+**Description:**
+<p>The <code>&lt;!DOCTYPE&gt;</code> declaration tells the web browser which (X)HTML version is being used on the page, and therefore how to interpret
+the various elements.</p>
+<p>Validators also rely on it to know which rules to enforce.</p>
+<p>It should always preceed the <code>&lt;html&gt;</code> tag.</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;html&gt;  &lt;!-- Noncompliant --&gt;
+...
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;  &lt;!-- Compliant --&gt;
+...
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 7
+**File:** `src/main/resources/templates/owners/ownerDetails.html`  
+**Line:** 3  
+**Problem:** "<title>" should be present in all pages  
+**SonarQube message:** Add a <title> tag to this page.  
+**Description:**
+<p>Titles are important because they are displayed in search engine results as well as the browser’s toolbar.</p>
+<p>This rule verifies that the <code>&lt;head&gt;</code> tag contains a <code>&lt;title&gt;</code> one, and the <code>&lt;html&gt;</code> tag a
+<code>&lt;head&gt;</code> one.</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;html&gt;         &lt;!-- Non-Compliant --&gt;
+
+&lt;body&gt;
+...
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;html&gt;         &lt;!-- Compliant --&gt;
+
+&lt;head&gt;
+&lt;title&gt;Some relevant title&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+...
+&lt;/body&gt;
+
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 8
+**File:** `src/main/resources/templates/owners/ownerDetails.html`  
+**Line:** 3  
+**Problem:** "<html>" element should have a language attribute  
+**SonarQube message:** Add "lang" and/or "xml:lang" attributes to this "<html>" element  
+**Description:**
+<ul>
+  <li> <a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H57">WCAG2, H57</a> - Using language attributes on the html element </li>
+  <li> <a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id">WCAG2, 3.1.1</a> - Language of Page </li>
+</ul>
+<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the
+default language of a document.</p>
+<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and
+accent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>
+<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation
+tools.</p>
+<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>
+<p>&nbsp;</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt; &lt;!-- Noncompliant --&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en" xml:lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
+
+### Issue 9
+**File:** `src/main/resources/templates/owners/ownersList.html`  
+**Line:** 3  
+**Problem:** "<html>" element should have a language attribute  
+**SonarQube message:** Add "lang" and/or "xml:lang" attributes to this "<html>" element  
+**Description:**
+<ul>
+  <li> <a href="https://www.w3.org/TR/WCAG20-TECHS/html.html#H57">WCAG2, H57</a> - Using language attributes on the html element </li>
+  <li> <a href="https://www.w3.org/WAI/WCAG21/quickref/?versions=2.0#qr-meaning-doc-lang-id">WCAG2, 3.1.1</a> - Language of Page </li>
+</ul>
+<p>The <code>&lt;html&gt;</code>&nbsp;element should provide the <code>lang</code> and/or <code>xml:lang</code> attribute in order to identify the
+default language of a document.</p>
+<p>It enables assistive technologies, such as screen readers,&nbsp;to provide a comfortable reading experience by adapting the pronunciation and
+accent to the language. It also helps braille translation software, telling it to switch the control codes for accented characters for instance.</p>
+<p>Other benefits of marking the language include assisting user agents in providing dictionary definitions or helping users benefit from translation
+tools.</p>
+<p>Both the <code>lang</code> and the <code>xml:lang</code> attributes can take only one value.</p>
+<p>&nbsp;</p>
+<h3>Noncompliant code example</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt; &lt;!-- Noncompliant --&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<h3>Compliant solution</h3>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en" xml:lang="en"&gt;
+&nbsp;&nbsp;&nbsp; &lt;head&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;title&gt;A page written in english&lt;/title&gt;
+ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &lt;meta content="text/html; charset=utf-8" /&gt;
+&nbsp;&nbsp;&nbsp; &lt;/head&gt; &nbsp;
+
+
+&nbsp;&nbsp;&nbsp; &lt;body&gt; &nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; ... &nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp; &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+**Fix objective:** Fix the issue while maintaining functionality.
