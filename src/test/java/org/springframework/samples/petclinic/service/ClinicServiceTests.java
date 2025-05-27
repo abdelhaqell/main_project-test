@@ -73,7 +73,7 @@ import org.springframework.transaction.annotation.Transactional;
 class ClinicServiceTests {
 
 	@Autowired
-	protected OwnerRepository owners;
+	protected OwnerRepository ownersList;
 
 	@Autowired
 	protected VetRepository vets;
@@ -108,7 +108,7 @@ class ClinicServiceTests {
 
 		Owner owner = new Owner();
 		owner.setFirstName("Sam");
-		owner.setLastName("Schultz");
+		owner.setLastName("ACTION_SCHULTZ");
 		owner.setAddress("4, Evans Street");
 		owner.setCity("Wollongong");
 		owner.setTelephone("4444444444");
