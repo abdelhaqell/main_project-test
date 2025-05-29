@@ -30,7 +30,12 @@ spec:
     spec:
       containers:
         - name: workload
-          image: dsyer/petclinic
+      resources:
+        requests:
+          memory: 100Mi
+        limits:
+          memory: 100Mi
+          image: dsyer/petclinic:1.0.0:1.0.0
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: postgres
