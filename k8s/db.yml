@@ -41,6 +41,14 @@ spec:
         app: demo-db
     spec:
       containers:
+      automountServiceAccountToken: false
+      resources:
+        requests:
+          ephemeral-storage: "2Gi"
+          memory: "100Mi"
+          cpu: "0.5"
+        limits:
+          memory: "100Mi"
         - image: postgres:17
       resources:
         requests:
