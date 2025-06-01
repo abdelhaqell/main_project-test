@@ -27,10 +27,16 @@ spec:
     metadata:
       labels:
         app: petclinic
+  automountServiceAccountToken: false
     spec:
+      resources:
+        requests:
+          memory: "100Mi"
+        limits:
+          memory: "200Mi"
       containers:
         - name: workload
-          image: dsyer/petclinic
+          image: dsyer/petclinic:1.0.0
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: postgres
