@@ -1,0 +1,36 @@
+[
+    {
+        "key": "46c41d79-6392-4342-aefb-0eb79ab516e1",
+        "severity": "MAJOR",
+        "message": "A form label must be associated with a control.",
+        "component": "spring-petclinic:src/main/resources/templates/owners/findOwners.html",
+        "line": 12,
+        "type": "CODE_SMELL",
+        "rule": "Web:S6853",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Label elements should have a text label and an associated control",
+            "description": "<p>When a label element lacks a text label or an associated control, it can lead to several issues:</p>\n<ol>\n  <li> <strong>Poor Accessibility</strong>: Screen readers rely on correctly associated labels to describe the function of the form control. If the\n  label is not properly associated with a control, it can make the form difficult or impossible for visually impaired users to understand or interact\n  with. </li>\n  <li> <strong>Confusing User Interface</strong>: Labels provide users with clear instructions about what information is required in a form control.\n  Without a properly associated label, users might not understand what input is expected, leading to confusion and potential misuse of the form. </li>\n  <li> <strong>Code Maintainability</strong>: Properly structured and labeled code is easier to read, understand, and maintain. When labels are not\n  correctly associated, it can make the code more difficult to navigate and debug, especially for new developers or those unfamiliar with the\n  codebase. </li>\n</ol>\n<p>Control elements are: * <code>&lt;input&gt;</code> * <code>&lt;meter&gt;</code> * <code>&lt;output&gt;</code> * <code>&lt;progress&gt;</code> *\n<code>&lt;select&gt;</code> * <code>&lt;textarea&gt;</code></p>\n<h3>Exceptions</h3>\n<p>Custom components may contain control elements, therefore label elements containing custom elements do not raise issues.</p>\n<p>A <code>&lt;label&gt;</code> element should wrap a control element or have an <code>&lt;htmlFor&gt;</code> attribute referencing a control and text\ncontent.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> MDN web docs - <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label\">The Label element</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships\">Info and Relationships</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions\">Labels or Instructions</a> </li>\n</ul>\n<p>If you have a pair of control and <code>&lt;label&gt;</code> elements, make sure that the <code>&lt;label&gt;</code> wraps the control element. If\nyou lack a control element, add one.</p>\n<p>It is strongly recommended to avoid using generated <code>id</code>s since they must be deterministic.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;input type=\"text\" /&gt;\n&lt;label&gt;Favorite food&lt;/label&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;label&gt;\n  &lt;input type=\"text\" /&gt;\n  Favorite food\n&lt;/label&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    },
+    {
+        "key": "6762dd63-7285-4164-b32b-25d66f305b40",
+        "severity": "MAJOR",
+        "message": "A form label must be associated with a control.",
+        "component": "spring-petclinic:src/main/resources/templates/fragments/inputField.html",
+        "line": 8,
+        "type": "CODE_SMELL",
+        "rule": "Web:S6853",
+        "status": "OPEN",
+        "rule_details": {
+            "name": "Label elements should have a text label and an associated control",
+            "description": "<p>When a label element lacks a text label or an associated control, it can lead to several issues:</p>\n<ol>\n  <li> <strong>Poor Accessibility</strong>: Screen readers rely on correctly associated labels to describe the function of the form control. If the\n  label is not properly associated with a control, it can make the form difficult or impossible for visually impaired users to understand or interact\n  with. </li>\n  <li> <strong>Confusing User Interface</strong>: Labels provide users with clear instructions about what information is required in a form control.\n  Without a properly associated label, users might not understand what input is expected, leading to confusion and potential misuse of the form. </li>\n  <li> <strong>Code Maintainability</strong>: Properly structured and labeled code is easier to read, understand, and maintain. When labels are not\n  correctly associated, it can make the code more difficult to navigate and debug, especially for new developers or those unfamiliar with the\n  codebase. </li>\n</ol>\n<p>Control elements are: * <code>&lt;input&gt;</code> * <code>&lt;meter&gt;</code> * <code>&lt;output&gt;</code> * <code>&lt;progress&gt;</code> *\n<code>&lt;select&gt;</code> * <code>&lt;textarea&gt;</code></p>\n<h3>Exceptions</h3>\n<p>Custom components may contain control elements, therefore label elements containing custom elements do not raise issues.</p>\n<p>A <code>&lt;label&gt;</code> element should wrap a control element or have an <code>&lt;htmlFor&gt;</code> attribute referencing a control and text\ncontent.</p>\n<h3>Documentation</h3>\n<ul>\n  <li> MDN web docs - <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label\">The Label element</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/info-and-relationships\">Info and Relationships</a> </li>\n  <li> W3C - <a href=\"https://www.w3.org/WAI/WCAG21/Understanding/labels-or-instructions\">Labels or Instructions</a> </li>\n</ul>\n<p>If you have a pair of control and <code>&lt;label&gt;</code> elements, make sure that the <code>&lt;label&gt;</code> wraps the control element. If\nyou lack a control element, add one.</p>\n<p>It is strongly recommended to avoid using generated <code>id</code>s since they must be deterministic.</p>\n\n<h4>Noncompliant code example</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"noncompliant\">\n&lt;input type=\"text\" /&gt;\n&lt;label&gt;Favorite food&lt;/label&gt;\n</pre>\n<h4>Compliant solution</h4>\n<pre data-diff-id=\"1\" data-diff-type=\"compliant\">\n&lt;label&gt;\n  &lt;input type=\"text\" /&gt;\n  Favorite food\n&lt;/label&gt;\n</pre>",
+            "rule_severity": "MAJOR",
+            "rule_type": "CODE_SMELL",
+            "rule_status": "READY"
+        }
+    }
+]
