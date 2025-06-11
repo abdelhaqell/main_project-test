@@ -2,8 +2,10 @@
 <html lang="en" xml:lang="en" xmlns:th="https://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
-<body>
+<head>
     <title>Create or Update Owner</title>
+</head>
+<body>
 
   <h2 th:text="#{owner}">Owner</h2>
   <form th:object="${owner}" class="form-horizontal" id="add-owner-form" method="post">
