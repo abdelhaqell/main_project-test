@@ -115,11 +115,8 @@ public class Owner extends Person {
 	 */
 	public Pet getPet(Integer id) {
 		for (Pet pet : getPets()) {
-			if (!pet.isNew()) {
-				Integer compId = pet.getId();
-				if (compId.equals(id)) {
-					return pet;
-				}
+			if (!pet.isNew() && pet.getId().equals(id)) {
+				return pet;
 			}
 		}
 		return null;
@@ -129,47 +126,4 @@ public class Owner extends Person {
 	 * Return the Pet with the given name, or null if none found for this Owner.
 	 * @param name to test
 	 * @param ignoreNew whether to ignore new pets (pets that are not saved yet)
-	 * @return the Pet with the given name, or null if no such Pet exists for this Owner
-	 */
-	public Pet getPet(String name, boolean ignoreNew) {
-		for (Pet pet : getPets()) {
-			String compName = pet.getName();
-			if (compName != null && compName.equalsIgnoreCase(name)) {
-				if (!ignoreNew || !pet.isNew()) {
-					return pet;
-				}
-			}
-		}
-		return null;
-	}
-
-	@Override
-	public String toString() {
-		return new ToStringCreator(this).append("id", this.getId())
-			.append("new", this.isNew())
-			.append("lastName", this.getLastName())
-			.append("firstName", this.getFirstName())
-			.append("address", this.address)
-			.append("city", this.city)
-			.append("telephone", this.telephone)
-			.toString();
-	}
-
-	/**
-	 * Adds the given {@link Visit} to the {@link Pet} with the given identifier.
-	 * @param petId the identifier of the {@link Pet}, must not be {@literal null}.
-	 * @param visit the visit to add, must not be {@literal null}.
-	 */
-	public void addVisit(Integer petId, Visit visit) {
-
-		Assert.notNull(petId, "Pet identifier must not be null!");
-		Assert.notNull(visit, "Visit must not be null!");
-
-		Pet pet = getPet(petId);
-
-		Assert.notNull(pet, "Invalid Pet identifier!");
-
-		pet.addVisit(visit);
-	}
-
-}
+	 * @return the Pet with the given name, or null if no such Pet exists
