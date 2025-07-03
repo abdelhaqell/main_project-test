@@ -28,9 +28,10 @@ spec:
       labels:
         app: petclinic
     spec:
+      automountServiceAccountToken: false
       containers:
         - name: workload
-          image: dsyer/petclinic
+          image: dsyer/petclinic:1.0.0
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: postgres
@@ -44,6 +45,13 @@ spec:
           ports:
             - name: http
               containerPort: 8080
+          resources:
+            requests:
+              cpu: "0.5"
+              memory: 100Mi
+              ephemeral-storage: "2Gi"
+            limits:
+              memory: 100Mi
           livenessProbe:
             httpGet:
               path: /livez
