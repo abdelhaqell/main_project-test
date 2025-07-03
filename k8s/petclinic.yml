@@ -28,9 +28,11 @@ spec:
       labels:
         app: petclinic
     spec:
+      serviceAccountName: default
+      automountServiceAccountToken: false
       containers:
         - name: workload
-          image: dsyer/petclinic
+          image: dsyer/petclinic:1.0
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: postgres
@@ -52,6 +54,13 @@ spec:
             httpGet:
               path: /readyz
               port: http
+          resources:
+            requests:
+              memory: 100Mi
+              ephemeral-storage: "2Gi"
+              cpu: 0.5
+            limits:
+              memory: 100Mi
           volumeMounts:
             - mountPath: /bindings/secret
               name: binding
