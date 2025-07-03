@@ -2,7 +2,7 @@
  * Copyright 2012-2019 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *      https://www.apache.org/licenses/LICENSE-2.0
@@ -30,7 +30,7 @@ class CrashController {
 
 	@GetMapping("/oups")
 	public String triggerException() {
-		throw new RuntimeException(
+		throw new IllegalStateException(
 				"Expected: controller used to showcase what " + "happens when an exception is thrown");
 	}
 
