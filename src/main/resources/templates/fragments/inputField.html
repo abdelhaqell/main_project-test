@@ -10,10 +10,7 @@
         th:class="${'form-group' + (valid ? '' : ' has-error')}"
         class="form-group">
         <label class="col-sm-2 control-label">
-          <input th:switch="${type}">
-            <input th:case="'text'" class="form-control" type="text" th:field="*{__${name}__}" />
-            <input th:case="'date'" class="form-control" type="date" th:field="*{__${name}__}"/>
-          </input>
+          <input th:switch="${type}" class="form-control" th:field="*{__${name}__}" th:type="${type}"/>
           <span th:text="${label}">Label</span>
         </label>
         <div class="col-sm-10">
