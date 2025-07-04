@@ -147,10 +147,10 @@ class OwnerControllerTests {
 	void testProcessCreationFormSuccess() throws Exception {
 		mockMvc
 				.perform(post(OWNERS_NEW).param(FIRST_NAME, "Joe")
-						.param(LAST_NAME, BLOGGS)
-						.param(ADDRESS, "123 Caramel Street")
-						.param("city", LONDON)
-						.param(TELEPHONE, "1316761638"))
+							.param(LAST_NAME, BLOGGS)
+							.param(ADDRESS, "123 Caramel Street")
+							.param("city", LONDON)
+							.param(TELEPHONE, "1316761638"))
 				.andExpect(status().is3xxRedirection());
 	}
 
@@ -218,10 +218,10 @@ class OwnerControllerTests {
 	void testProcessUpdateOwnerFormSuccess() throws Exception {
 		mockMvc
 				.perform(post(OWNERS_OWNER_ID_EDIT, TEST_OWNER_ID).param(FIRST_NAME, "Joe")
-						.param(LAST_NAME, BLOGGS)
-						.param(ADDRESS, "123 Caramel Street")
-						.param("city", LONDON)
-						.param(TELEPHONE, "1616291589"))
+							.param(LAST_NAME, BLOGGS)
+							.param(ADDRESS, "123 Caramel Street")
+							.param("city", LONDON)
+							.param(TELEPHONE, "1616291589"))
 				.andExpect(status().is3xxRedirection())
 				.andExpect(view().name("redirect:/owners/{ownerId}"));
 	}
@@ -237,9 +237,9 @@ class OwnerControllerTests {
 	void testProcessUpdateOwnerFormHasErrors() throws Exception {
 		mockMvc
 				.perform(post(OWNERS_OWNER_ID_EDIT, TEST_OWNER_ID).param(FIRST_NAME, "Joe")
-						.param(LAST_NAME, BLOGGS)
-						.param(ADDRESS, "")
-						.param(TELEPHONE, ""))
+							.param(LAST_NAME, BLOGGS)
+							.param(ADDRESS, "")
+							.param(TELEPHONE, ""))
 				.andExpect(status().isOk())
 				.andExpect(model().attributeHasErrors(OWNER))
 				.andExpect(model().attributeHasFieldErrors(OWNER, ADDRESS))
@@ -258,7 +258,7 @@ class OwnerControllerTests {
 			.andExpect(model().attribute(OWNER, hasProperty(TELEPHONE, is(TELEPHONE_6085551023))))
 			.andExpect(model().attribute(OWNER, hasProperty("pets", not(empty()))))
 			.andExpect(model().attribute(OWNER,
-												hasProperty("pets", hasItem(hasProperty("visits", hasSize(greaterThan(0)))))))
+																	hasProperty("pets", hasItem(hasProperty("visits", hasSize(greaterThan(0)))))))
 			.andExpect(view().name("owners/ownerDetails"));
 	}
 
