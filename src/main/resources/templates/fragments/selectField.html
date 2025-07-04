@@ -9,11 +9,12 @@
       <div th:with="valid=${!#fields.hasErrors(name)}"
         th:class="${'form-group' + (valid ? '' : ' has-error')}"
         class="form-group">
-        <label class="col-sm-2 control-label" th:text="${label}">
-          <select th:field="*{__${name}__}">
+        <label class="col-sm-2 control-label">
+          <select th:field="*{__${name}__}" th:aria-label="${label}">
             <option th:each="item : ${items}" th:value="${item}"
               th:text="${item}">dog</option>
           </select>
+          <span th:text="${label}" class="sr-only"></span>
         </label>
 
         <div class="col-sm-10">
