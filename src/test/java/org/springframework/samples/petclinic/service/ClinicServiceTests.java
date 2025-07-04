@@ -82,11 +82,11 @@ class ClinicServiceTests {
 
 	@Test
 	void shouldFindOwnersByLastName() {
-		Page<Owner> ownersPage = this.owners.findByLastNameStartingWith("Davis", pageable);
-		assertThat(ownersPage).hasSize(2);
+		Page<Owner> ownersPageLocal = this.owners.findByLastNameStartingWith("Davis", pageable);
+		assertThat(ownersPageLocal).hasSize(2);
 
-		ownersPage = this.owners.findByLastNameStartingWith("Daviss", pageable);
-		assertThat(ownersPage).isEmpty();
+		ownersPageLocal = this.owners.findByLastNameStartingWith("Daviss", pageable);
+		assertThat(ownersPageLocal).isEmpty();
 	}
 
 	@Test
@@ -100,23 +100,25 @@ class ClinicServiceTests {
 		assertThat(owner.getPets().get(0).getType().getName()).isEqualTo("cat");
 	}
 
+	private static final String SCHULTZ = "Schultz";
+
 	@Test
 	@Transactional
 	void shouldInsertOwner() {
-		Page<Owner> ownersPage = this.owners.findByLastNameStartingWith("Schultz", pageable);
-		int found = (int) ownersPage.getTotalElements();
+		Page<Owner> ownersPageLocal = this.owners.findByLastNameStartingWith(SCHULTZ, pageable);
+		int found = (int) ownersPageLocal.getTotalElements();
 
 		Owner owner = new Owner();
 		owner.setFirstName("Sam");
-		owner.setLastName("Schultz");
+		owner.setLastName(SCHULTZ);
 		owner.setAddress("4, Evans Street");
 		owner.setCity("Wollongong");
 		owner.setTelephone("4444444444");
 		this.owners.save(owner);
 		assertThat(owner.getId()).isNotZero();
 
-		ownersPage = this.owners.findByLastNameStartingWith("Schultz", pageable);
-		assertThat(ownersPage.getTotalElements()).isEqualTo(found + 1);
+		ownersPageLocal = this.owners.findByLastNameStartingWith(SCHULTZ, pageable);
+		assertThat(ownersPageLocal.getTotalElements()).isEqualTo(found + 1);
 	}
 
 	@Test
@@ -199,9 +201,9 @@ class ClinicServiceTests {
 
 	@Test
 	void shouldFindVets() {
-		Collection<Vet> vetsCollection = this.vets.findAll();
+		Collection<Vet> vetsCollectionLocal = this.vets.findAll();
 
-		Vet vet = EntityUtils.getById(vetsCollection, Vet.class, 3);
+		Vet vet = EntityUtils.getById(vetsCollectionLocal, Vet.class, 3);
 		assertThat(vet.getLastName()).isEqualTo("Douglas");
 		assertThat(vet.getNrOfSpecialties()).isEqualTo(2);
 		assertThat(vet.getSpecialties().get(0).getName()).isEqualTo("dentistry");
