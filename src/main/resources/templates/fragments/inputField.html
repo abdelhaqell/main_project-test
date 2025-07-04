@@ -9,7 +9,7 @@
       <div th:with="valid=${!#fields.hasErrors(name)}"
         th:class="${'form-group' + (valid ? '' : ' has-error')}"
         class="form-group">
-        <label class="col-sm-2 control-label" th:for="${name}">
+        <label class="col-sm-2 control-label">
           <input th:switch="${type}" 
                  th:case="'text'" class="form-control" type="text" th:field="*{__${name}__}" 
                  th:if="${true}"/>
