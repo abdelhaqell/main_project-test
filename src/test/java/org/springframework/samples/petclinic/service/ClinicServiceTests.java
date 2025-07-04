@@ -84,11 +84,11 @@ class ClinicServiceTests {
 
 	@Test
 	void shouldFindOwnersByLastName() {
-		Page<Owner> resultOwners = this.owners.findByLastNameStartingWith("Davis", pageable);
-		assertThat(resultOwners).hasSize(2);
+		Page<Owner> foundOwners = this.owners.findByLastNameStartingWith("Davis", pageable);
+		assertThat(foundOwners).hasSize(2);
 
-		resultOwners = this.owners.findByLastNameStartingWith("Daviss", pageable);
-		assertThat(resultOwners).isEmpty();
+		foundOwners = this.owners.findByLastNameStartingWith("Daviss", pageable);
+		assertThat(foundOwners).isEmpty();
 	}
 
 	@Test
@@ -105,8 +105,8 @@ class ClinicServiceTests {
 	@Test
 	@Transactional
 	void shouldInsertOwner() {
-		Page<Owner> SchultzOwners = this.owners.findByLastNameStartingWith(SCHULTZ, pageable);
-		int found = (int) SchultzOwners.getTotalElements();
+		Page<Owner> schultzOwners = this.owners.findByLastNameStartingWith(SCHULTZ, pageable);
+		int found = (int) schultzOwners.getTotalElements();
 
 		Owner owner = new Owner();
 		owner.setFirstName("Sam");
@@ -117,8 +117,8 @@ class ClinicServiceTests {
 		this.owners.save(owner);
 		assertThat(owner.getId()).isNotZero();
 
-		SchultzOwners = this.owners.findByLastNameStartingWith(SCHULTZ, pageable);
-		assertThat(SchultzOwners.getTotalElements()).isEqualTo(found + 1);
+		schultzOwners = this.owners.findByLastNameStartingWith(SCHULTZ, pageable);
+		assertThat(schultzOwners.getTotalElements()).isEqualTo(found + 1);
 	}
 
 	@Test
@@ -201,9 +201,9 @@ class ClinicServiceTests {
 
 	@Test
 	void shouldFindVets() {
-		Collection<Vet> vetList = this.vets.findAll();
+		Collection<Vet> vetListLocal = this.vets.findAll();
 
-		Vet vet = EntityUtils.getById(vetList, Vet.class, 3);
+		Vet vet = EntityUtils.getById(vetListLocal, Vet.class, 3);
 		assertThat(vet.getLastName()).isEqualTo("Douglas");
 		assertThat(vet.getNrOfSpecialties()).isEqualTo(2);
 		assertThat(vet.getSpecialties().get(0).getName()).isEqualTo("dentistry");
