@@ -55,7 +55,7 @@ spec:
               port: http
           resources:
             requests:
-              cpu: 100m
+              cpu: "100m"
               memory: 100Mi
               ephemeral-storage: "2Gi"
             limits:
