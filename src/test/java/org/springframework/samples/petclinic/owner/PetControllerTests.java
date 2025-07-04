@@ -127,11 +127,11 @@ class PetControllerTests {
 					.perform(post(NEW_PET_URL, TEST_OWNER_ID).param("name", "	 \n")
 							.param(MODEL_ATTRIBUTE_BIRTHDATE, BIRTHDATE_2015_02_12))
 					.andExpect(model().attributeHasNoErrors(MODEL_ATTRIBUTE_OWNER))
-					.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
-					.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "name"))
-					.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "name", REQUIRED))
-					.andExpect(status().isOk())
-					.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
+						.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
+						.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "name"))
+						.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "name", REQUIRED))
+						.andExpect(status().isOk())
+						.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
 		}
 
 		@Test
@@ -140,11 +140,11 @@ class PetControllerTests {
 					.perform(post(NEW_PET_URL, TEST_OWNER_ID).param("name", "petty")
 							.param(MODEL_ATTRIBUTE_BIRTHDATE, BIRTHDATE_2015_02_12))
 					.andExpect(model().attributeHasNoErrors(MODEL_ATTRIBUTE_OWNER))
-					.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
-					.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "name"))
-					.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "name", "duplicate"))
-					.andExpect(status().isOk())
-					.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
+						.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
+						.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "name"))
+						.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "name", "duplicate"))
+						.andExpect(status().isOk())
+						.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
 		}
 
 		@Test
@@ -153,11 +153,11 @@ class PetControllerTests {
 					.perform(post(NEW_PET_URL, TEST_OWNER_ID).param("name", NAME_BETTY)
 							.param(MODEL_ATTRIBUTE_BIRTHDATE, BIRTHDATE_2015_02_12))
 					.andExpect(model().attributeHasNoErrors(MODEL_ATTRIBUTE_OWNER))
-					.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
-					.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "type"))
-					.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "type", REQUIRED))
-					.andExpect(status().isOk())
-					.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
+						.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
+						.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "type"))
+						.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "type", REQUIRED))
+						.andExpect(status().isOk())
+						.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
 		}
 
 		@Test
@@ -169,11 +169,11 @@ class PetControllerTests {
 					.perform(post(NEW_PET_URL, TEST_OWNER_ID).param("name", NAME_BETTY)
 							.param(MODEL_ATTRIBUTE_BIRTHDATE, futureBirthDate))
 					.andExpect(model().attributeHasNoErrors(MODEL_ATTRIBUTE_OWNER))
-					.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
-					.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE))
-					.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE, "typeMismatch.birthDate"))
-					.andExpect(status().isOk())
-					.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
+						.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
+						.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE))
+						.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE, "typeMismatch.birthDate"))
+						.andExpect(status().isOk())
+						.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
 		}
 
 		@Test
@@ -205,10 +205,10 @@ class PetControllerTests {
 					.perform(post(EDIT_PET_URL, TEST_OWNER_ID, TEST_PET_ID).param("name", " ")
 							.param(MODEL_ATTRIBUTE_BIRTHDATE, "2015/02/12"))
 					.andExpect(model().attributeHasNoErrors(MODEL_ATTRIBUTE_OWNER))
-					.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
-					.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE))
-					.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE, "typeMismatch"))
-					.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
+						.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
+						.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE))
+						.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, MODEL_ATTRIBUTE_BIRTHDATE, "typeMismatch"))
+						.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
 		}
 
 		@Test
@@ -217,10 +217,10 @@ class PetControllerTests {
 					.perform(post(EDIT_PET_URL, TEST_OWNER_ID, TEST_PET_ID).param("name", "  ")
 							.param(MODEL_ATTRIBUTE_BIRTHDATE, BIRTHDATE_2015_02_12))
 					.andExpect(model().attributeHasNoErrors(MODEL_ATTRIBUTE_OWNER))
-					.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
-					.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "name"))
-					.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "name", REQUIRED))
-					.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
+						.andExpect(model().attributeHasErrors(MODEL_ATTRIBUTE_PET))
+						.andExpect(model().attributeHasFieldErrors(MODEL_ATTRIBUTE_PET, "name"))
+						.andExpect(model().attributeHasFieldErrorCode(MODEL_ATTRIBUTE_PET, "name", REQUIRED))
+						.andExpect(view().name(PETS_CREATE_OR_UPDATE_PET_FORM));
 		}
 
 	}
