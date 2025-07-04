@@ -1,5 +1,10 @@
-<html xmlns:th="https://www.thymeleaf.org"
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" xmlns:th="https://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+
+<head>
+  <title>Pet Form</title>
+</head>
 
 <body>
 
@@ -13,7 +18,7 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">Owner</label>
         <div class="col-sm-10">
-          <span th:text="${owner?.firstName + ' ' + owner?.lastName}" />
+          <span th:text="${owner?.firstName + ' ' + owner?.lastName}"></span>
         </div>
       </div>
       <input
