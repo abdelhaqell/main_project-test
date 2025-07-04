@@ -16,6 +16,6 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=petclinic
+      - POSTGRES_PASSWORD=
       - POSTGRES_USER=petclinic
       - POSTGRES_DB=petclinic
