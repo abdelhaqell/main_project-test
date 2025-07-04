@@ -79,7 +79,7 @@ public class PostgresIntegrationTests {
 	}
 
 	@Test
-	void testFindAll() throws Exception {
+	void testFindAll() throws IllegalArgumentException {
 		vets.findAll();
 		vets.findAll(); // served from cache
 	}
