@@ -2,6 +2,10 @@
 <html xmlns:th="https://www.thymeleaf.org" lang="en" xml:lang="en"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
+<head>
+  <title>Create or Update Pet</title>
+</head>
+
 <body>
 
   <h2>
@@ -12,12 +16,12 @@
     <input type="hidden" name="id" th:value="*{id}" />
     <div class="form-group has-feedback">
       <div class="form-group">
-        <label class="col-sm-2 control-label">
+        <label class="col-sm-2 control-label" for="ownerName">
           Owner
           <span aria-hidden="true"></span>
         </label>
         <div class="col-sm-10">
-          <span th:text="${owner?.firstName + ' ' + owner?.lastName}" />
+          <span id="ownerName" th:text="${owner?.firstName + ' ' + owner?.lastName}" />
         </div>
       </div>
       <input
