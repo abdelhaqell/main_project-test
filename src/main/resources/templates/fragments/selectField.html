@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
+<head>
+  <title>Select Field</title>
+</head>
 <body>
   <form>
     <th:block th:fragment="select (label, name, items)">
       <div th:with="valid=${!#fields.hasErrors(name)}"
         th:class="${'form-group' + (valid ? '' : ' has-error')}"
         class="form-group">
-        <label>
+        <label th:for="${name}">
           <select th:field="*{__${name}__}" th:id="${name}">
             <option th:each="item : ${items}" th:value="${item}"
               th:text="${item}">dog</option>
