@@ -9,7 +9,7 @@
       <div th:with="valid=${!#fields.hasErrors(name)}"
         th:class="${'form-group' + (valid ? '' : ' has-error')}"
         class="form-group">
-        <label th:for="${name}">
+        <label>
           <select th:field="*{__${name}__}" th:id="${name}">
             <option th:each="item : ${items}" th:value="${item}"
               th:text="${item}">dog</option>
