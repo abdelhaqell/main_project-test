@@ -25,6 +25,38 @@ spec:
     app: demo-db
 
 ---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: demo-db-sa
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: demo-db-role
+rules:
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: demo-db-role-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: demo-db-sa
+  namespace: default
+roleRef:
+  kind: Role
+  name: demo-db-role
+  apiGroup: rbac.authorization.k8s.io
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -40,6 +72,8 @@ spec:
       labels:
         app: demo-db
     spec:
+      serviceAccountName: demo-db-sa
+      automountServiceAccountToken: false
       containers:
         - image: postgres:17
           name: postgresql
@@ -62,6 +96,13 @@ spec:
           ports:
             - containerPort: 5432
               name: postgresql
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: "0.5"
+              ephemeral-storage: "2Gi"
+            limits:
+              memory: 100Mi
           livenessProbe:
             tcpSocket:
               port: postgresql
