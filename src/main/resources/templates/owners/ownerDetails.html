@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns:th="https://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
-  <body>
+  <head>
     <title>Owner Details</title>
-  
+  </head>
+  <body>
   
     <h2>Owner Information</h2>
 
@@ -53,7 +52,7 @@
     <table class="table table-striped">
   
       <tr th:each="pet : ${owner.pets}">
-        <td valign="top">
+        <td style="vertical-align: top;">
           <dl class="dl-horizontal">
             <dt>Name</dt>
             <dd th:text="${pet.name}"></dd>
@@ -64,7 +63,7 @@
             <dd th:text="${pet.type}"></dd>
           </dl>
         </td>
-        <td valign="top">
+        <td style="vertical-align: top;">
           <table class="table-condensed">
             <thead>
               <tr>
