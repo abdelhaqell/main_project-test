@@ -17,7 +17,7 @@
           <label>
             <input class="form-control" th:field="*{lastName}" size="30"
               maxlength="80" /> 
-            Favorite food
+            Last name
             <span class="help-inline"><div
               th:if="${#fields.hasAnyErrors()}">
               <p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
