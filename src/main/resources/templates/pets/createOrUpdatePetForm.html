@@ -1,6 +1,9 @@
-<html xmlns:th="https://www.thymeleaf.org"
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
-
+<head>
+  <title>Pet Form</title>
+</head>
 <body>
 
   <h2>
@@ -16,12 +19,21 @@
           <span th:text="${owner?.firstName + ' ' + owner?.lastName}" />
         </div>
       </div>
-      <input
-        th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
-      <input
-        th:replace="~{fragments/inputField :: input ('Birth Date', 'birthDate', 'date')}" />
-      <input
-        th:replace="~{fragments/selectField :: select ('Type', 'type', ${types})}" />
+      <label>
+        <input
+          th:replace="~{fragments/inputField :: input ('Name', 'name', 'text')}" />
+        Name
+      </label>
+      <label>
+        <input
+          th:replace="~{fragments/inputField :: input ('Birth Date', 'birthDate', 'date')}" />
+        Birth Date
+      </label>
+      <label>
+        <input
+          th:replace="~{fragments/selectField :: select ('Type', 'type', ${types})}" />
+        Type
+      </label>
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
