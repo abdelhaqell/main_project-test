@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <title>Input Field</title>
+</head>
 <body>
-  <head>
-    <title>Input Field</title>
-  </head>
   <form>
     <th:block th:fragment="input (label, name, type)">
       <div th:with="valid=${!#fields.hasErrors(name)}"
