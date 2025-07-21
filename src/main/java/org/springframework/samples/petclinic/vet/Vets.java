@@ -30,14 +30,14 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class Vets {
 
-	private List<Vet> vetList;
+	private List<Vet> veterinarianList;
 
 	@XmlElement
-	public List<Vet> getVetList() {
-		if (vetList == null) {
-			vetList = new ArrayList<>();
+	public List<Vet> getVeterinarianList() {
+		if (veterinarianList == null) {
+			veterinarianList = new ArrayList<>();
 		}
-		return vetList;
+		return veterinarianList;
 	}
 
 }
