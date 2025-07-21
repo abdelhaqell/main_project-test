@@ -69,6 +69,7 @@ spec:
               memory: 100Mi
               ephemeral-storage: "2Gi"
             limits:
+              cpu: 1
               memory: 100Mi
           livenessProbe:
             tcpSocket:
