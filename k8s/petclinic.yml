@@ -31,7 +31,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: workload
-          image: dsyer/petclinic:2.4.0 # Replaced with a specific version tag
+          image: dsyer/petclinic:2.4.0
           resources:
             requests:
               memory: 100Mi
