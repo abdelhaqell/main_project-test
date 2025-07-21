@@ -40,6 +40,7 @@ spec:
       labels:
         app: demo-db
     spec:
+      automountServiceAccountToken: false
       containers:
         - image: postgres:17
           name: postgresql
@@ -62,6 +63,13 @@ spec:
           ports:
             - containerPort: 5432
               name: postgresql
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 0.5
+              ephemeral-storage: "2Gi"
+            limits:
+              memory: 100Mi
           livenessProbe:
             tcpSocket:
               port: postgresql
