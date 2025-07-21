@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns:th="https://www.thymeleaf.org"
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
       th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+<head>
+    <title>Veterinarians</title>
+</head>
 
 <body>
 
@@ -33,22 +36,22 @@
     </span>
   <span>]&nbsp;</span>
   <span>
-      <a th:if="${currentPage > 1}" th:href="@{'/vets.html?page=1'}" title=#{first}
+      <a th:if="${currentPage > 1}" th:href="@{'/vets.html?page=1'}" title="#{first}"
          class="fa fa-fast-backward"></a>
-      <span th:unless="${currentPage > 1}" th:text="#{first}" title=#{first} class="fa fa-fast-backward"></span>
+      <span th:unless="${currentPage > 1}" th:text="#{first}" title="#{first}" class="fa fa-fast-backward"></span>
     </span>
   <span>
-      <a th:if="${currentPage > 1}" th:href="@{'/vets.html?page=__${currentPage - 1}__'}" title=#{previous}
+      <a th:if="${currentPage > 1}" th:href="@{'/vets.html?page=__${currentPage - 1}__'}" title="#{previous}"
          class="fa fa-step-backward"></a>
-      <span th:unless="${currentPage > 1}" th:text="#{previous}" title=#{previous} class="fa fa-step-backward"></span>
+      <span th:unless="${currentPage > 1}" th:text="#{previous}" title="#{previous}" class="fa fa-step-backward"></span>
     </span>
   <span>
-      <a th:if="${currentPage < totalPages}" th:href="@{'/vets.html?page=__${currentPage + 1}__'}" title=#{next}
+      <a th:if="${currentPage < totalPages}" th:href="@{'/vets.html?page=__${currentPage + 1}__'}" title="#{next}"
          class="fa fa-step-forward"></a>
-      <span th:unless="${currentPage < totalPages}" th:text="#{next}" title=#{next} class="fa fa-step-forward"></span>
+      <span th:unless="${currentPage < totalPages}" th:text="#{next}" title="#{next}" class="fa fa-step-forward"></span>
     </span>
   <span>
-      <a th:if="${currentPage < totalPages}" th:href="@{'/vets.html?page=__${totalPages}__'}" title=#{last}
+      <a th:if="${currentPage < totalPages}" th:href="@{'/vets.html?page=__${totalPages}__'}" title="#{last}"
          class="fa fa-fast-forward"></a>
       <span th:unless="${currentPage < totalPages}" th:text="#{last}" class="fa fa-fast-forward"></span>
     </span>
