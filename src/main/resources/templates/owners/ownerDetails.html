@@ -53,7 +53,7 @@
     <table class="table table-striped">
   
       <tr th:each="pet : ${owner.pets}">
-        <td valign="top">
+        <td>
           <dl class="dl-horizontal">
             <dt>Name</dt>
             <dd th:text="${pet.name}"></dd>
@@ -64,7 +64,7 @@
             <dd th:text="${pet.type}"></dd>
           </dl>
         </td>
-        <td valign="top">
+        <td>
           <table class="table-condensed">
             <thead>
               <tr>
