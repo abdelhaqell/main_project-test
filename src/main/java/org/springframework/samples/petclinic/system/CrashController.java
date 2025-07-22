@@ -28,9 +28,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 class CrashController {
 
+	static class CrashException extends RuntimeException {
+		public CrashException(String message) {
+			super(message);
+		}
+	}
+
 	@GetMapping("/oups")
 	public String triggerException() {
-		throw new RuntimeException(
+		throw new CrashException(
 				"Expected: controller used to showcase what " + "happens when an exception is thrown");
 	}
 
