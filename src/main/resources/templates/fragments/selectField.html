@@ -1,5 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <body>
+  <head>
+    <title>Select Field</title>
+  </head>
   <form>
     <th:block th:fragment="select (label, name, items)">
       <div th:with="valid=${!#fields.hasErrors(name)}"
