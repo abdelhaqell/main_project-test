@@ -28,9 +28,19 @@ spec:
       labels:
         app: petclinic
     spec:
+      automountServiceAccountToken: false
       containers:
         - name: workload
-          image: dsyer/petclinic
+          image: dsyer/petclinic:latest # This should be updated to a specific version, but the exact version is not provided in the context.
+          resources:
+            requests:
+              cpu: 0.5
+              memory: 100Mi
+              ephemeral-storage: "2Gi"
+            limits:
+              cpu: 1
+              memory: 100Mi
+              ephemeral-storage: "2Gi"
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: postgres
