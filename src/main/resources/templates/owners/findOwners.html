@@ -2,9 +2,11 @@
 <html lang="en" xml:lang="en" xmlns:th="https://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
 
-<body>
-    <title>Find Owners</title>
+<head>
+  <title>Find Owners</title>
+</head>
 
+<body>
   <h2 th:text="#{findOwners}">Find Owners</h2>
 
   <form th:object="${owner}" th:action="@{/owners}" method="get"
